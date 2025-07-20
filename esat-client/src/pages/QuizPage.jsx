@@ -7,6 +7,7 @@ import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import Select from 'react-select';
 import { supabase } from '../utils/supabase';
+import { API_BASE } from '../utils/config';
 
 const tagOptions = [
   { value: 'mechanics', label: 'Mechanics' },
@@ -41,7 +42,7 @@ const QuizPage = () => {
     if (selectedDifficulty) params.append('difficulty', selectedDifficulty);
     selectedTags.forEach(tag => params.append('tags', tag.value));
 
-    fetch(`http://localhost:3000/api/questions?${params.toString()}`)
+    fetch(`${API_BASE}/api/questions?${params.toString()}`)
       .then(res => res.json())
       .then(data => {
         setQuestions(data);
