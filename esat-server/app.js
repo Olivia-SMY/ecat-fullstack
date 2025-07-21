@@ -1,4 +1,3 @@
-// app.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -6,11 +5,20 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// ✅ 配置允许的前端来源（Netlify + 本地开发）
+const allowedOrigins = [
+  'http://localhost:5173', // 本地调试用
+  'https://smyesatweb2.netlify.app' // 你部署到 Netlify 的前端地址
+];
+
+// ✅ 配置 CORS 中间件
+app.use(cors({
+  origin: allowedOrigins,
+}));
+
 app.use(express.json());
 
-// Connect to MongoDB
+// ✅ 连接 MongoDB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -18,7 +26,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => {
   console.log('✅ MongoDB connected');
 
-  // Start server
+  // ✅ 启动服务器
   app.listen(3000, () => {
     console.log('🚀 Server running at http://localhost:3000');
   });
@@ -27,7 +35,7 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('❌ MongoDB connection error:', err);
 });
 
-// Routes
+// ✅ 注册路由
 const questionRoutes = require('./routes/questions');
 const recordRoutes = require('./routes/records');
 
