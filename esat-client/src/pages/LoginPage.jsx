@@ -37,6 +37,12 @@ const LoginPage = () => {
       </form>
       <p>{status}</p>
       <button onClick={() => navigate('/register')} style={{ marginTop: 10 }}>还没有账号？去注册</button>
+      <p style={{ marginTop: '10px' }}>
+  <button onClick={() => navigate('/reset-password')} style={{ color: '#2f80ed', background: 'none', border: 'none', cursor: 'pointer' }}>
+    忘记密码？
+  </button>
+</p>
+
     </div>
   );
 };
