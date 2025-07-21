@@ -1,5 +1,6 @@
 // src/api/records.js
 import axios from 'axios';
+import { API_BASE } from '../utils/config'; // ✅ 引入 API_BASE
 
 export const submitRecord = async (userId, answers) => {
   const payload = {
@@ -11,11 +12,12 @@ export const submitRecord = async (userId, answers) => {
   };
 
   try {
-    const res = await axios.post('http://localhost:3000/api/records', payload);
+    const res = await axios.post(`${API_BASE}/api/records`, payload); // ✅ 使用动态地址
     return res.data;
   } catch (err) {
     console.error('❌ 提交失败', err);
     throw err;
   }
 };
+
 

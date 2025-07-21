@@ -18,7 +18,7 @@ const HomePage = () => {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
-    navigate('/'); // 登出后回到首页
+    navigate('/');
   };
 
   return (
@@ -30,8 +30,12 @@ const HomePage = () => {
           <p>👋 当前登录用户：{user.email}</p>
 
           <div style={{ marginTop: 20, display: 'flex', gap: '12px' }}>
-            <button onClick={() => navigate('/quiz')}>
-              🚀 开始刷题
+            <button onClick={() => navigate('/quiz?mode=random')}>
+              🎲 随机练习
+            </button>
+
+            <button onClick={() => navigate('/quiz?mode=filter')}>
+              🎯 条件筛选
             </button>
 
             <button onClick={() => navigate('/records')}>
@@ -54,3 +58,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
