@@ -1,7 +1,7 @@
-// src/pages/HomePage.jsx
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/supabase';
 import { useNavigate } from 'react-router-dom';
+import { Typewriter } from 'react-simple-typewriter';
 
 const HomePage = () => {
   const [user, setUser] = useState(null);
@@ -22,24 +22,46 @@ const HomePage = () => {
   };
 
   return (
-    <div style={{ padding: 40 }}>
-      <h1>欢迎来到 ESAT 刷题网站</h1>
+    <div style={{ padding: 40, fontFamily: 'Arial, sans-serif' }}>
+      <h1 style={{ fontSize: '2rem' }}>😸 欢迎来到 <span style={{ color: '#2f80ed' }}>ESAT 刷题网站</span> 🚀💯</h1>
+
+<p style={{ fontSize: '1.2rem', marginTop: '10px', minHeight: '50px' }}>
+  <span style={{ color: '#333' }}>
+    <Typewriter
+      words={[
+        '📈 正在向 ESAT 满分冲刺中...',
+        '🧠 解一道题，练一块脑肌肉！',
+        '🎯 每一道题，都是通往高分的阶梯！',
+        '🔥 成绩不会撒谎，努力不会辜负你！',
+        '🚀 你今天刷题了吗？来挑战一下吧！',
+        '🤖 AI 正在偷偷观察你的解题速度...'
+      ]}
+      loop={true}
+      cursor
+      cursorStyle='|'
+      typeSpeed={50}
+      deleteSpeed={30}
+      delaySpeed={2000}
+    />
+  </span>
+</p>
+
 
       {user ? (
         <>
-          <p>👋 当前登录用户：{user.email}</p>
+          <p style={{ marginTop: 20 }}>👋 当前登录用户：<strong>{user.email}</strong></p>
 
-          <div style={{ marginTop: 20, display: 'flex', gap: '12px' }}>
+          <div style={{ marginTop: 30, display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: 240 }}>
             <button onClick={() => navigate('/quiz?mode=random')}>
-              🎲 随机练习
+              🎲 随机模式（挑战一题）
             </button>
 
             <button onClick={() => navigate('/quiz?mode=filter')}>
-              🎯 条件筛选
+              🎯 筛选模式（按标签出题）
             </button>
 
             <button onClick={() => navigate('/records')}>
-              📝 查看我的记录
+              📜 查看我的记录
             </button>
 
             <button onClick={handleLogout}>
@@ -49,8 +71,10 @@ const HomePage = () => {
         </>
       ) : (
         <>
-          <p>您尚未登录</p>
-          <button onClick={() => navigate('/login')}>前往登录</button>
+          <p style={{ marginTop: 20 }}>😢 您尚未登录，快来解锁更多功能吧！</p>
+          <button onClick={() => navigate('/login')} style={{ marginTop: 10 }}>
+            🔐 前往登录
+          </button>
         </>
       )}
     </div>
@@ -58,4 +82,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
