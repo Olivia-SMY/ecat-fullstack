@@ -23,7 +23,7 @@ const HomePage = () => {
 
   return (
     <div style={{ padding: 40, fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ fontSize: '2rem' }}>😸 欢迎来到 <span style={{ color: '#2f80ed' }}>ESAT 刷题网站</span> 🚀💯</h1>
+      <h1 style={{ fontSize: '2rem' }}>😸 欢迎来到 <span style={{ color: '#2f80ed' }}>ECat 刷题网站</span> 🚀💯</h1>
 
 <p style={{ fontSize: '1.2rem', marginTop: '10px', minHeight: '50px' }}>
   <span style={{ color: '#333' }}>
