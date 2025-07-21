@@ -13,7 +13,13 @@ const RegisterPage = () => {
     e.preventDefault();
     setStatus('正在注册...');
 
-    const { error } = await supabase.auth.signUp({ email, password });
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: 'https://smyesatweb2.netlify.app/login' // 👈 添加跳转地址
+      }
+    });
 
     if (error) {
       setStatus(`❌ 注册失败：${error.message}`);
@@ -41,3 +47,4 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+
