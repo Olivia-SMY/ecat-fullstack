@@ -8,6 +8,7 @@ import Select from 'react-select';
 import { supabase } from '../utils/supabase';
 import { API_BASE } from '../utils/config';
 import axios from 'axios';
+import LoadingLottie from '../components/LoadingLottie';
 
 const tagOptions = [
   { value: 'mechanics', label: 'Mechanics' },
@@ -118,7 +119,7 @@ const QuizPage = () => {
     });
   };
 
-  if (loading) return <p>加载中...</p>;
+  if (loading) return <LoadingLottie />;
 
   return (
     <div className="quiz-container" style={{ padding: '20px', fontFamily: 'sans-serif' }}>
