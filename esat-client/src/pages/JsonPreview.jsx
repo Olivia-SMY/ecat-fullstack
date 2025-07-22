@@ -100,22 +100,30 @@ const JsonPreview = () => {
           style={{ marginLeft: '12px' }}
         />
       </div>
+<div
+  ref={dropRef}
+  onDrop={handleDrop}
+  onDragOver={handleDragOver}
+  onDragEnter={() => dropRef.current.style.borderColor = '#2f80ed'}
+  onDragLeave={() => dropRef.current.style.borderColor = '#ccc'}
+  style={{
+    border: '3px dashed #ccc',
+    borderRadius: '10px',
+    padding: '30px',
+    textAlign: 'center',
+    backgroundColor: '#f9f9f9',
+    color: '#333',
+    fontSize: '16px',
+    transition: 'border-color 0.3s, background-color 0.3s',
+    marginBottom: '20px',
+    cursor: 'pointer'
+  }}
+>
+  <div style={{ fontSize: '40px', marginBottom: '10px' }}>📂</div>
+  <div><strong>拖拽 .json 文件到这里上传</strong></div>
+  <div style={{ fontSize: '13px', color: '#666', marginTop: '6px' }}>也可以点击上方按钮手动上传</div>
+</div>
 
-      <div
-        ref={dropRef}
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        style={{
-          border: '2px dashed #ccc',
-          borderRadius: '8px',
-          padding: '20px',
-          textAlign: 'center',
-          color: '#666',
-          marginBottom: '20px'
-        }}
-      >
-        或将 .json 文件拖拽到此区域上传
-      </div>
 
       {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
 
