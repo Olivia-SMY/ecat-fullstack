@@ -28,7 +28,7 @@
     ],
     "answerIndex": 1,
     "explanation": "",
-    "images": [],
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images//Q2.png"],
     "tags": ["mechanics", "kinematics"],
     "difficulty": "medium",
     "difficultyScore": 3.0
