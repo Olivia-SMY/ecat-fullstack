@@ -9,14 +9,15 @@ import { supabase } from '../utils/supabase';
 import { API_BASE } from '../utils/config';
 import axios from 'axios';
 import LoadingLottie from '../components/LoadingLottie';
-
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 const tagOptions = [
   { value: 'mechanics', label: 'Mechanics' },
   { value: 'electricity', label: 'Electricity' },
   { value: 'optics', label: 'Optics' },
   { value: 'thermodynamics', label: 'Thermodynamics' },
   { value: 'waves', label: 'Waves' },
-  { value: 'quantum', label: 'Quantum' },
+  { value: 'quantum', label: 'Quantum' }
 ];
 
 const QuizPage = () => {
@@ -26,12 +27,13 @@ const QuizPage = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
   const [user, setUser] = useState(null);
+  const [scoreRange, setScoreRange] = useState([1, 10]);
+  const [difficultyMode, setDifficultyMode] = useState('label'); // 'label' or 'range'
   const [searchParams] = useSearchParams();
-  const mode = searchParams.get('mode') || 'filter'; // 默认 filter
+  const mode = searchParams.get('mode') || 'filter';
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 获取当前登录用户
     const fetchUser = async () => {
       const { data } = await supabase.auth.getUser();
       if (data?.user) setUser(data.user);
@@ -40,39 +42,41 @@ const QuizPage = () => {
   }, []);
 
   const fetchQuestions = async () => {
-  try {
-    setLoading(true);
-    let data;
+    try {
+      setLoading(true);
+      let data;
 
-    if (mode === 'random') {
-      const res = await axios.get(`${API_BASE}/api/questions/random`);
-      data = res.data;
-    } else {
-      const params = new URLSearchParams();
-      if (selectedDifficulty) params.append('difficulty', selectedDifficulty);
-      selectedTags.forEach(tag => params.append('tags', tag.value));
+      if (mode === 'random') {
+        const res = await axios.get(`${API_BASE}/api/questions/random`);
+        data = res.data;
+      } else {
+        const params = new URLSearchParams();
+        if (difficultyMode === 'label' && selectedDifficulty) {
+          params.append('difficulty', selectedDifficulty);
+        } else if (difficultyMode === 'range') {
+          params.append('minScore', scoreRange[0].toString());
+          params.append('maxScore', scoreRange[1].toString());
 
-      const res = await axios.get(`${API_BASE}/api/questions?${params.toString()}`);
-      data = res.data;
+        }
+        selectedTags.forEach(tag => params.append('tags', tag.value));
+        // ✅ 添加这行查看请求参数
+      console.log('请求参数：', params.toString());
+
+        const res = await axios.get(`${API_BASE}/api/questions?${params.toString()}`);
+        data = res.data;
+      }
+
+      setQuestions(data);
+    } catch (err) {
+      console.error('❌ 题目加载失败', err);
+    } finally {
+      setLoading(false);
     }
-
-    console.log("🔥 返回的 questions 数据：", data); // 👈 添加这一行
-
-    setQuestions(Array.isArray(data) ? data : []);
-  } catch (err) {
-    console.error('❌ 题目加载失败', err);
-    setQuestions([]);
-  } finally {
-    setLoading(false);
-  }
-};
-
-
+  };
 
   useEffect(() => {
     fetchQuestions();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode]); // 初始加载（或切换模式）时加载题目
+  }, [mode]);
 
   const handleSelect = (questionId, index) => {
     setAnswers(prev => ({ ...prev, [questionId]: index }));
@@ -96,7 +100,6 @@ const QuizPage = () => {
 
     const correctCount = results.filter(r => r.isCorrect).length;
 
-    // 保存记录到 Supabase
     const { error } = await supabase.from('records').insert({
       user_id: user.id,
       score: correctCount,
@@ -126,16 +129,62 @@ const QuizPage = () => {
       <h1>ESAT 题目练习</h1>
 
       {mode === 'filter' && (
-        <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <label>
-            难度：
-            <select value={selectedDifficulty} onChange={(e) => setSelectedDifficulty(e.target.value)}>
-              <option value="">全部</option>
-              <option value="easy">简单</option>
-              <option value="medium">中等</option>
-              <option value="hard">困难</option>
-            </select>
-          </label>
+        <div style={{ marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <button
+              onClick={() => setDifficultyMode('label')}
+              style={{
+                backgroundColor: difficultyMode === 'label' ? '#2f80ed' : '#ccc',
+                color: 'white',
+                padding: '6px 12px',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+              }}
+            >
+              📊 难度等级
+            </button>
+            <button
+              onClick={() => setDifficultyMode('range')}
+              style={{
+                backgroundColor: difficultyMode === 'range' ? '#2f80ed' : '#ccc',
+                color: 'white',
+                padding: '6px 12px',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+              }}
+            >
+              🎚️ 分数范围
+            </button>
+          </div>
+
+          {difficultyMode === 'label' && (
+            <label>
+              难度：
+              <select value={selectedDifficulty} onChange={(e) => setSelectedDifficulty(e.target.value)}>
+                <option value="">全部</option>
+                <option value="easy">简单</option>
+                <option value="medium">中等</option>
+                <option value="hard">困难</option>
+              </select>
+            </label>
+          )}
+
+          {difficultyMode === 'range' && (
+            <div style={{ width: '300px' }}>
+              <label>难度分数范围（{scoreRange[0]} ~ {scoreRange[1]}）：</label>
+              <Slider
+  range
+  min={1}
+  max={10}
+  step={0.1}
+  value={scoreRange}
+  onChange={(val) => setScoreRange(val)}
+/>
+
+            </div>
+          )}
 
           <div style={{ width: '300px' }}>
             <label>标签（可多选）：</label>
@@ -168,11 +217,7 @@ const QuizPage = () => {
             Q{q.index || idx + 1}.
           </p>
 
-          <ReactMarkdown
-            children={q.question}
-            remarkPlugins={[remarkMath]}
-            rehypePlugins={[rehypeKatex]}
-          />
+          <ReactMarkdown children={q.question} remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]} />
 
           {q.images && q.images.map((src, i) => (
             <img
@@ -193,11 +238,7 @@ const QuizPage = () => {
                     checked={answers[q._id] === i}
                     onChange={() => handleSelect(q._id, i)}
                   />
-                  <ReactMarkdown
-                    children={opt}
-                    remarkPlugins={[remarkMath]}
-                    rehypePlugins={[rehypeKatex]}
-                  />
+                  <ReactMarkdown children={opt} remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]} />
                 </label>
               </li>
             ))}
