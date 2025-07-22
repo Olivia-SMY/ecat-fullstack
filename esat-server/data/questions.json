@@ -1,25 +1,23 @@
 [
   {
-  "id": 1,                                  
-  "index": 1,
-  "question": "Two teams of movers are lowering a piano from the window of a 10-floor apartment building. The rope breaks when the piano is 30 meters above the ground. The movers on the ground, alerted by the shouts of the movers above, first notice the piano when it is 14 meters above the ground. How long do they have to get out of the way before the piano hits the ground?",
-  "options": [
-    "(A) 0.66 sec",
-    "(B) 0.78 sec",
-    "(C) 1.67 sec",
-    "(D) 1.79 sec",
-    "(E) 2.45 sec"
-  ],
-  "answerIndex": 3,
-  "explanation": "We calculate the time $t$ it takes to fall from 14m to 0m using $s = \\frac{1}{2}gt^2$. So $t = \\sqrt{\\frac{2s}{g}} = \\sqrt{\\frac{2 \\times 14}{9.8}} \\approx 1.79$ seconds.",
-  "images": [],
-  "tags": ["mechanics"],
-  "difficulty": "medium",
-  "difficultyScore": 3.0
-},
-{
-    "id": 2, 
-    "index": 5,
+    "index": 1,
+    "question": "Two teams of movers are lowering a piano from the window of a 10-floor apartment building. The rope breaks when the piano is 30 meters above the ground. The movers on the ground, alerted by the shouts of the movers above, first notice the piano when it is 14 meters above the ground. How long do they have to get out of the way before the piano hits the ground?",
+    "options": [
+      "0.66 sec",
+      "0.78 sec",
+      "1.67 sec",
+      "1.79 sec",
+      "2.45 sec"
+    ],
+    "answerIndex": 3,
+    "explanation": "We calculate the time $t$ it takes to fall from 14m to 0m using $s = \\frac{1}{2}gt^2$. So $t = \\sqrt{\\frac{2s}{g}} = \\sqrt{\\frac{2 \\times 14}{9.8}} \\approx 1.79$ seconds.",
+    "images": [],
+    "tags": ["mechanics"],
+    "difficulty": "medium",
+    "difficultyScore": 3.0
+  },
+  {
+    "index": 2,
     "question": "Two projectiles are launched from a 35 meter ledge as shown in the diagram. One is launched from a $37^\\circ$ angle above the horizontal and the other is launched from $37^\\circ$ below the horizontal. Both of the launches are given the same initial speed of $v_0 = 50\\ \\mathrm{m/s}$.\\\\\n\nThe difference in the times of flight for these two projectiles, $t_1 - t_2$, is closest to:",
     "options": [
       "3 s",
@@ -31,13 +29,12 @@
     "answerIndex": 1,
     "explanation": "",
     "images": [],
-    "tags": ["mechanics","kinematics"],
+    "tags": ["mechanics", "kinematics"],
     "difficulty": "medium",
     "difficultyScore": 3.0
   },
   {
-    "id": 3, 
-    "index": 6,
+    "index": 3,
     "question": "A projectile is launched across flat ground at an angle $\\theta$ to the horizontal and travels in the absence of air resistance. It rises to a maximum height $H$ and lands a horizontal distance $R$ away. What is the ratio $H / R$?",
     "options": [
       "$\\tan \\theta$",
