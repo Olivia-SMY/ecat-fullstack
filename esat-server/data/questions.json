@@ -13,8 +13,9 @@
   "answerIndex": 3,
   "explanation": "We calculate the time $t$ it takes to fall from 14m to 0m using $s = \\frac{1}{2}gt^2$. So $t = \\sqrt{\\frac{2s}{g}} = \\sqrt{\\frac{2 \\times 14}{9.8}} \\approx 1.79$ seconds.",
   "images": [],
-  "tags": ["mechanics", "free fall"],
-  "difficulty": "medium"
+  "tags": ["mechanics"],
+  "difficulty": "medium",
+  "difficultyScore": 3.0
 },
 {
     "id": 2, 
@@ -30,8 +31,9 @@
     "answerIndex": 1,
     "explanation": "",
     "images": [],
-    "tags": ["projectile motion", "kinematics"],
-    "difficulty": "medium"
+    "tags": ["mechanics","kinematics"],
+    "difficulty": "medium",
+    "difficultyScore": 3.0
   },
   {
     "id": 3, 
@@ -47,7 +49,8 @@
     "answerIndex": 3,
     "explanation": "",
     "images": [],
-    "tags": ["projectile motion", "kinematics"],
-    "difficulty": "easy"
+    "tags": ["mechanics"],
+    "difficulty": "easy",
+    "difficultyScore": 2.0
   }
 ]
