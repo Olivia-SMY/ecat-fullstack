@@ -1,7 +1,5 @@
 // src/App.jsx
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-
 import HomePage from './pages/HomePage';
 import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
@@ -12,6 +10,10 @@ import MyRecordsPage from './pages/MyRecordsPage';
 import ProtectedRoute from './components/ProtectedRoute'; 
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import UpdatePasswordPage from './pages/UpdatePasswordPage';
+import Qupload from './pages/Qupload';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MockExamPage from './pages/MockExamPage';
+import JsonPreview from './pages/JsonPreview';
 function App() {
   return (
     <Routes>
@@ -41,6 +43,9 @@ function App() {
       <Route path="/records" element={<MyRecordsPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route path="/update-password" element={<UpdatePasswordPage />} />
+      <Route path="/qupload" element={<Qupload />} />
+      <Route path="/mock/:examId" element={<MockExamPage />} />
+      <Route path="/json-preview" element={<JsonPreview />} />
     </Routes>
   );
 }

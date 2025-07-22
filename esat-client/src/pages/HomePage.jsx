@@ -52,22 +52,27 @@ const HomePage = () => {
           <p style={{ marginTop: 20 }}>👋 当前登录用户：<strong>{user.email}</strong></p>
 
           <div style={{ marginTop: 30, display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: 240 }}>
-            <button onClick={() => navigate('/quiz?mode=random')}>
-              🎲 随机模式（挑战一题）
-            </button>
+  <button onClick={() => navigate('/quiz?mode=random')}>
+    🎲 随机模式（挑战一题）
+  </button>
 
-            <button onClick={() => navigate('/quiz?mode=filter')}>
-              🎯 筛选模式（按标签出题）
-            </button>
+  <button onClick={() => navigate('/quiz?mode=filter')}>
+    🎯 筛选模式（按标签出题）
+  </button>
 
-            <button onClick={() => navigate('/records')}>
-              📜 查看我的记录
-            </button>
+  <button onClick={() => navigate('/records')}>
+    📜 查看我的记录
+  </button>
 
-            <button onClick={handleLogout}>
-              🚪 退出登录
-            </button>
-          </div>
+  <button onClick={() => navigate('/json-preview')}>
+    👀 题库预览工具
+  </button>
+
+  <button onClick={handleLogout}>
+    🚪 退出登录
+  </button>
+</div>
+
         </>
       ) : (
         <>
