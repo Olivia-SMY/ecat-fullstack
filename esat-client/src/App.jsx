@@ -2,7 +2,7 @@
 import React from 'react';
 import HomePage from './pages/HomePage';
 import QuizPage from './pages/QuizPage';
-import ResultPage from './pages/ResultPage';
+import QuizResultPage from './pages/QuizResultPage';
 import TestSupabase from './pages/TestSupabase';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -14,6 +14,8 @@ import Qupload from './pages/Qupload';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MockExamPage from './pages/MockExamPage';
 import JsonPreview from './pages/JsonPreview';
+import MockResultPage from './pages/MockResultPage';
+import MockListPage from './pages/MockListPage';
 function App() {
   return (
     <Routes>
@@ -32,7 +34,7 @@ function App() {
         path="/result"
         element={
           <ProtectedRoute>
-            <ResultPage />
+            <QuizResultPage />
           </ProtectedRoute>
         }
       />
@@ -46,6 +48,9 @@ function App() {
       <Route path="/qupload" element={<Qupload />} />
       <Route path="/mock/:examId" element={<MockExamPage />} />
       <Route path="/json-preview" element={<JsonPreview />} />
+      <Route path="/mock-result" element={<MockResultPage />} />
+      <Route path="/mock" element={<MockListPage />} />
+      <Route path="/mock/:examId" element={<MockExamPage />} />
     </Routes>
   );
 }

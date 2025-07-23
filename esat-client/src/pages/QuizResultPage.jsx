@@ -5,7 +5,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 
-const ResultPage = () => {
+const QuizResultPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { score, questions = [], answers = [] } = location.state || {};
@@ -145,5 +145,5 @@ const ResultPage = () => {
   );
 };
 
-export default ResultPage;
+export default QuizResultPage;
 

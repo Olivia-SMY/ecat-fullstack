@@ -60,6 +60,11 @@ const HomePage = () => {
     🎯 筛选模式（按标签出题）
   </button>
 
+  <button onClick={() => navigate('/mock')}>
+  ⌛ 模拟考试（计时真题）
+</button>
+
+
   <button onClick={() => navigate('/records')}>
     📜 查看我的记录
   </button>
@@ -72,6 +77,7 @@ const HomePage = () => {
     🚪 退出登录
   </button>
 </div>
+
 
         </>
       ) : (

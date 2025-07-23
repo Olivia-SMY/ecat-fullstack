@@ -1,9 +1,14 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import axios from 'axios';
 import { API_BASE } from '../utils/config';
+import { supabase } from '../utils/supabase';
+import { getScaledScore } from '../utils/scaledScore'; 
+
+
+
 
 function LatexText({ text }) {
   if (!text) return null;
@@ -23,22 +28,17 @@ function LatexText({ text }) {
   );
 }
 
-const rawToScaled = {
-  0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.2,
-  5: 1.9, 6: 2.4, 7: 2.9, 8: 3.4, 9: 3.9,
-  10: 4.3, 11: 4.8, 12: 5.3, 13: 5.7, 14: 6.3,
-  15: 6.8, 16: 7.4, 17: 8.2, 18: 9.0, 19: 9.0, 20: 9.0,
-};
-
 function MockExamPage() {
   const { examId } = useParams();
+  const navigate = useNavigate();
+
   const [questions, setQuestions] = useState([]);
-  const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [showResults, setShowResults] = useState(false);
+  const [current, setCurrent] = useState(0);
   const [timeLeft, setTimeLeft] = useState(1800);
   const [startTime, setStartTime] = useState(null);
-  const [elapsedTime, setElapsedTime] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [examTitle, setExamTitle] = useState('');
 
   useEffect(() => {
     const fetchExam = async () => {
@@ -46,23 +46,25 @@ function MockExamPage() {
         const res = await axios.get(`${API_BASE}/api/mock-exams/${examId}`);
         setQuestions(res.data.questions);
         setAnswers(Array(res.data.questions.length).fill(null));
+        setExamTitle(res.data.title || '');
       } catch (err) {
         console.error('❌ 模考加载失败:', err);
+      } finally {
+        setLoading(false);
       }
     };
-
     fetchExam();
   }, [examId]);
 
   useEffect(() => {
-    if (questions.length === 0 || showResults) return;
+    if (questions.length === 0) return;
     setStartTime(Date.now());
 
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) {
           clearInterval(timer);
-          setShowResults(true);
+          handleAutoSubmit();
           return 0;
         }
         return prev - 1;
@@ -70,33 +72,77 @@ function MockExamPage() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [questions, showResults]);
+  }, [questions]);
 
   const handleAnswer = (index) => {
-    if (showResults) return;
     const newAnswers = [...answers];
     newAnswers[current] = index;
     setAnswers(newAnswers);
   };
 
-  const score = answers.reduce((acc, ans, idx) =>
-    ans === questions[idx]?.answerIndex ? acc + 1 : acc, 0);
-  const scaled = rawToScaled[score] ?? 'N/A';
-
   const formatTime = (s) => `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, '0')}`;
-  const formatDuration = (ms) => {
-    const sec = Math.floor(ms / 1000);
-    return `${Math.floor(sec / 60)} 分 ${sec % 60} 秒`;
-  };
 
   const confirmAndSubmit = () => {
     const unanswered = answers.filter(a => a === null).length;
     if (unanswered > 0 && !window.confirm(`还有 ${unanswered} 题未作答，是否仍要提交？`)) return;
-    setElapsedTime(Date.now() - startTime);
-    setShowResults(true);
+    submitResult();
   };
 
+  const handleAutoSubmit = () => {
+    submitResult();
+  };
+
+  const submitResult = async () => {
+  const elapsedTime = Date.now() - startTime;
+
+  const { data: userData, error: userError } = await supabase.auth.getUser();
+  const userId = userData?.user?.id;
+
+  if (userError || !userId) {
+    console.error('❌ 获取用户信息失败:', userError);
+    return;
+  }
+
+  const score = answers.filter((a, i) => a === questions[i]?.answerIndex).length;
+  const scaled = getScaledScore(score); // ✅ 计算标准分
+
+  // ✅ 插入 Supabase 并附带 scaled_score 字段
+  const { error } = await supabase.from('mock_exam_results').insert({
+    user_id: userId,
+    exam_id: examId,
+    score,
+    scaled_score: scaled, // ✅ 这里加上
+    elapsed_time: Math.floor(elapsedTime / 1000), // 建议以秒为单位
+    answers,
+    created_at: new Date().toISOString(), // 可选，明确创建时间
+  });
+
+  if (error) {
+    console.error('❌ 保存考试结果失败:', error);
+  } else {
+    console.log('✅ 模考结果已保存');
+  }
+
+  navigate('/mock-result', {
+    state: {
+      questions,
+      answers,
+      elapsedTime,
+      title: examTitle,
+    }
+  });
+};
+
+
   const question = questions[current];
+
+  if (loading) {
+    return (
+      <div style={{ padding: 40, textAlign: 'center' }}>
+        <h2>正在加载试卷...</h2>
+      </div>
+    );
+  }
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'Arial, sans-serif' }}>
@@ -129,15 +175,19 @@ function MockExamPage() {
 
       <div style={{ flex: 1, padding: 30, maxWidth: 1000, margin: '0 auto' }}>
         <Link to="/" style={{ marginBottom: 20, display: 'inline-block' }}>⬅ 返回首页</Link>
-        <h2>模拟考试</h2>
+        <h2>{examTitle || '模拟考试'}</h2>
 
-        {!showResults && question && (
+        {question && (
           <>
             <div style={{ marginBottom: 20, fontSize: 18 }}>⏱ 剩余时间: {formatTime(timeLeft)}</div>
             <div style={{ marginBottom: 20 }}>
               <strong>Q {current + 1}:</strong>
               <div style={{ marginTop: 8, fontSize: 18 }}>
-                <LatexText text={question.question} />
+                {question.text ? (
+                  <LatexText text={question.text} />
+                ) : (
+                  <span style={{ color: 'gray' }}>[题干为空]</span>
+                )}
               </div>
               {(question.images || []).map((img, idx) => (
                 <img
@@ -197,39 +247,6 @@ function MockExamPage() {
                 </button>
               )}
             </div>
-          </>
-        )}
-
-        {showResults && (
-          <>
-            <h3>答题结果</h3>
-            <div style={{ marginBottom: 15 }}>总得分: {score} / {questions.length}</div>
-            <div style={{ marginBottom: 15 }}>标准分: {scaled}</div>
-            <div style={{ marginBottom: 15 }}>答题用时: {elapsedTime ? formatDuration(elapsedTime) : '—'}</div>
-            <ul style={{ padding: 0, listStyle: 'none' }}>
-              {questions.map((q, idx) => {
-                const isCorrect = answers[idx] === q.answerIndex;
-                const userOpt = q.options[answers[idx]];
-                const correctOpt = q.options[q.answerIndex];
-                return (
-                  <li
-                    key={q._id || idx}
-                    style={{
-                      marginBottom: 12,
-                      padding: 10,
-                      border: '1px solid',
-                      borderColor: isCorrect ? '#4caf50' : '#f44336',
-                      borderRadius: 6,
-                      backgroundColor: isCorrect ? '#e8f5e9' : '#ffebee',
-                    }}
-                  >
-                    <div><strong>题目 {idx + 1}:</strong> <LatexText text={q.question} /></div>
-                    <div>你的答案: <LatexText text={userOpt || '未作答'} /></div>
-                    <div>正确答案: <LatexText text={correctOpt} /></div>
-                  </li>
-                );
-              })}
-            </ul>
           </>
         )}
       </div>
