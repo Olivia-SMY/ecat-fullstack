@@ -1,0 +1,189 @@
+[
+  {
+    "id": 1,
+    "question": "The surface area of a solid sphere of radius $R$ is equal to the total surface area of 10 solid closed cylinders of radius $r$ and height $4r$.\n(The surface area of a sphere of radius $R$ is $4\\pi R^2$.)\nWhich of the following is an expression for $R$ in terms of $r$?",
+    "options": ["$R = 5r$", "$R = 12r$", "$R = 2\\sqrt{5}r$", "$R = \\frac{\\sqrt{2}}{10}r$", "$R = 10r$", "$R = \\frac{3\\sqrt{2}}{10}r$", "$R = 15r$"],
+    "answerIndex": 0
+  },
+  {
+    "id": 2,
+    "question": "A spaceship of mass $10\\,000\\ \\mathrm{kg}$ is moving at $2.0\\ \\mathrm{m\\,s^{-1}}$ relative to a space station.\nThe spaceship is captured by a robotic arm attached to the space station and brought to rest by a force of $1000\\ \\mathrm{N}$.\nHow far will the spaceship move in its initial direction relative to the space station while the force is being applied?",
+    "options": ["$0.050\\ \\mathrm{m}$", "$0.10\\ \\mathrm{m}$", "$0.20\\ \\mathrm{m}$", "$5.0\\ \\mathrm{m}$", "$10\\ \\mathrm{m}$", "$20\\ \\mathrm{m}$"],
+    "answerIndex": 5
+  },
+  {
+    "id": 3,
+    "question": "Which of the following is a correct rearrangement of\n$y = p - \\frac{q - r}{s - x}$\nto make $x$ the subject?",
+    "options": [
+      "$x = s - \\frac{py}{q - r}$",
+      "$x = \\frac{py}{q - r} - s$",
+      "$x = s - \\frac{py}{q - r}$",
+      "$x = \\frac{py}{q - r} - s$",
+      "$x = s - \\frac{yp}{q - r}$",
+      "$x = \\frac{yp}{q - r} - s$"
+    ],
+    "answerIndex": 2
+  },
+  {
+  "id": 4,
+  "question": "A circuit is set up as shown. All three resistors are identical.\nWhen the switch is open, the reading on the ammeter is $1.0\\ \\mathrm{A}$ and the power transferred from the battery is $1.0\\ \\mathrm{W}$.\nThe switch is now closed.\nWhat is the new reading on the ammeter and what is the new power transferred from the battery?",
+  "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q4.png"],
+  "options": [
+    "$0.67\\ \\mathrm{A},\\ 0.67\\ \\mathrm{W}$",
+    "$0.67\\ \\mathrm{A},\\ 1.3\\ \\mathrm{W}$",
+    "$0.67\\ \\mathrm{A},\\ 1.5\\ \\mathrm{W}$",
+    "$0.67\\ \\mathrm{A},\\ 2.0\\ \\mathrm{W}$",
+    "$1.0\\ \\mathrm{A},\\ 1.0\\ \\mathrm{W}$",
+    "$1.0\\ \\mathrm{A},\\ 1.5\\ \\mathrm{W}$",
+    "$1.0\\ \\mathrm{A},\\ 2.0\\ \\mathrm{W}$",
+    "$1.0\\ \\mathrm{A},\\ 3.0\\ \\mathrm{W}$"
+  ],
+  "answerIndex": 5
+  },
+  {
+    "id": 5,
+    "question": "WXYZ is a square of side length $1$.\n$WM : MX = 1 : 2$\n$XN : NY = 3 : 1$\n$YP : PZ = 4 : 1$\nWhat is the area of triangle $MNP$?",
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q5.png"],
+    "options": ["$\\frac{1}{3}$", "$\\frac{2}{5}$", "$\\frac{9}{20}$", "$\\frac{1}{30}$", "$\\frac{19}{60}$", "$\\frac{23}{60}$"],
+    "answerIndex": 5
+  },
+  {
+    "id": 6,
+    "question": "A spring is initially unstretched.\nA force $F$ is used to stretch the spring.\nThe extension $x$ and the energy $E$ stored in the stretched spring are measured for different values of $F$.\nThe graph shows how the energy $E$ (in J) varies with the extension squared, $x^2$ (in cm$^2$).\nWhat is the magnitude of $F$ when the spring stores $0.015\\ \\mathrm{J}$ of energy?",
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q6.png"],
+    "options": ["$0.30\\ \\mathrm{N}$", "$0.60\\ \\mathrm{N}$", "$1.2\\ \\mathrm{N}$", "$1.5\\ \\mathrm{N}$", "$2.4\\ \\mathrm{N}$", "$3.0\\ \\mathrm{N}$", "$30\\ \\mathrm{N}$", "$60\\ \\mathrm{N}$"],
+    "answerIndex": 1
+  },
+  {
+    "id": 7,
+    "question": "Given that\n$x^{-2} = \\frac{27^{3 - 2x}}{81^{x - 3}}$\nwhat is the value of $x$?",
+    "options": ["$0$", "$2.5$", "$3$", "$6$", "$7.5$", "$9$", "$10.5$", "$12$"],
+    "answerIndex": 3
+  },
+  {
+    "id": 8,
+    "question": "A solid, cylindrical metal bar has a uniform cross-sectional area of $12\\ \\mathrm{cm}^2$ and a volume of $180\\ \\mathrm{cm}^3$.\nThe bar rests on a horizontal surface on one of its circular faces.\nThe pressure on the surface due to the bar is $0.45\\ \\mathrm{N\\,cm^{-2}}$.\nWhat is the density of the metal, in $\\mathrm{g\\,cm^{-3}}$?\n(Gravitational field strength = $10\\ \\mathrm{N\\,kg^{-1}}$)",
+    "options": ["$2.5\\ \\mathrm{g\\,cm^{-3}}$", "$3.0\\ \\mathrm{g\\,cm^{-3}}$", "$3.75\\ \\mathrm{g\\,cm^{-3}}$", "$7.5\\ \\mathrm{g\\,cm^{-3}}$", "$15\\ \\mathrm{g\\,cm^{-3}}$", "$33\\ \\mathrm{g\\,cm^{-3}}$"],
+    "answerIndex": 1
+  },
+  {
+    "id": 9,
+    "question": "Last year, the salary of the coach of a football club was 80% of the salary of the star player.\nAt the start of the new year, the coach received a 15% increase in salary and the star player received a 38% increase in salary.\nWhat percentage of the star player’s new salary is the coach’s new salary?",
+    "options": ["$46\\%$", "$57\\%$", "$\\frac{61}{35}\\%$", "$\\frac{66}{23}\\%$", "$77\\%$", "$\\frac{83}{13}\\%$"],
+    "answerIndex": 3
+  },
+  {
+    "id": 10,
+    "question": "Two samples of pure radioactive isotopes $X$ and $Y$ decay with half-lives of 2 days and 3 days, respectively.\nBoth $X$ and $Y$ decay in a single step into different stable isotopes.\nInitially the number of atoms of $X$ is twice the number of atoms of $Y$.\nAfter how many days are the expected numbers of atoms of $X$ and $Y$ equal to each other?",
+    "options": ["The expected numbers of atoms of $X$ and $Y$ are never equal.", "$2\\ \\mathrm{days}$", "$3\\ \\mathrm{days}$", "$4\\ \\mathrm{days}$", "$6\\ \\mathrm{days}$", "$12\\ \\mathrm{days}$"],
+    "answerIndex": 4
+  },
+  {
+    "id": 11,
+    "question": "An athlete’s training session consists of several complete repetitions of a three-part programme:\n1. Walk 100 m at an average speed of 6 km h$^{-1}$\n2. Jog 200 m at an average speed of 10 km h$^{-1}$\n3. Run 100 m at an average speed of 20 km h$^{-1}$\nWhat is the athlete’s average speed for the complete training session, in km h$^{-1}$?",
+    "options": ["$7.2$", "$9.6$", "$11.5$", "$12$", "$14.4$"],
+    "answerIndex": 1
+  },
+  {
+  "id": 12,
+  "question": "A large, flat, metal plate is coated on one side with a layer of thermally insulating material of the same thickness $a$ as the metal plate.\nThe uninsulated top surface of the metal plate is maintained at a constant temperature $T_1$.\nThe bottom surface of the insulating material is maintained at a constant, lower temperature $T_2$.\nThe system is in equilibrium.\n\nWhich graph could show how the temperature varies with distance from the top surface of the metal plate to the bottom surface of the insulating material?",
+  "images": [
+    "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q12a.png",
+    "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q12b.png"
+  ],
+  "options": ["Graph A", "Graph B", "Graph C", "Graph D", "Graph E"],
+  "answerIndex": 0
+  },
+  {
+    "id": 13,
+    "question": "Two objects $X$ and $Y$ are similar.\nThe surface area of object $Y$ is double the surface area of object $X$.\nThe volume of object $Y$ is $7\\sqrt{2}\\ \\mathrm{cm}^3$ more than the volume of object $X$.\nWhat is the volume of object $X$, in cm$^3$?",
+    "options": [
+      "$14 - 7\\sqrt{2}$",
+      "$14 + 7\\sqrt{2}$",
+      "$\\frac{-42 + 7\\sqrt{2}}{17}$",
+      "$\\frac{42 + 7\\sqrt{2}}{17}$",
+      "$\\frac{7\\sqrt{2}}{3}$",
+      "$7\\sqrt{2}$",
+      "$4 - \\sqrt{2}$",
+      "$4 + \\sqrt{2}$"
+    ],
+    "answerIndex": 7
+  },
+  {
+    "id": 14,
+    "question": "The voltage output of a power station is stepped up using a transformer before the power is transmitted to a distant town.\nThe primary coil of this transformer has 300 turns and the secondary coil has 1500 turns.\nIn the town, a step-down transformer reduces the voltage supplied by the transmission cables to 33 000 V for distribution within the town.\nThe step-down transformer supplies a current of 1500 A.\nThe current in the transmission cables is 450 A and both transformers are ideal and 100% efficient.\nWhat is the voltage output of the power station?",
+    "options": ["$1980\\ \\mathrm{V}$", "$6600\\ \\mathrm{V}$", "$22\\,000\\ \\mathrm{V}$", "$110\\,000\\ \\mathrm{V}$", "$550\\,000\\ \\mathrm{V}$"],
+    "answerIndex": 2
+  },
+  {
+    "id": 15,
+    "question": "The equation\n$\\frac{24 \\times 3^a}{(10^8 \\times 2^a)(3^{10-a})} = \\frac{1}{9 \\times 10^3}$\nhas two solutions for $a$.\nWhat is the positive difference between these two solutions?",
+    "options": ["$0$", "$2\\sqrt{5}$", "$4\\sqrt{5}$", "$20\\sqrt{5}$", "$40\\sqrt{5}$", "$200\\sqrt{5}$"],
+    "answerIndex": 1
+  },
+  {
+    "id": 16,
+    "question": "A transverse wave with an amplitude of $3.0\\ \\mathrm{cm}$ travels along a stretched string. The wave has a frequency of $12\\ \\mathrm{Hz}$ and a wavelength of $0.25\\ \\mathrm{m}$. What is the average speed of a particle in the string as the string oscillates during a time of $2.0\\ \\mathrm{s}$?",
+    "options": [
+      "$36\\ \\mathrm{cm\\ s^{-1}}$",
+      "$72\\ \\mathrm{cm\\ s^{-1}}$",
+      "$125\\ \\mathrm{cm\\ s^{-1}}$",
+      "$144\\ \\mathrm{cm\\ s^{-1}}$",
+      "$300\\ \\mathrm{cm\\ s^{-1}}$"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": 17,
+    "question": "X and Y are the end-points of a line segment. Point P has coordinates $(-8,\\ 5)$. P lies on the line segment XY such that $XP : PY = 1 : 2$ and $\\vec{XP} = \\begin{pmatrix} 4 \\\\ -3 \\end{pmatrix}$. A point Q is such that $\\vec{QY} = \\begin{pmatrix} 7 \\\\ 6 \\end{pmatrix}$. What are the coordinates of point Q?",
+    "options": [
+      "$(7,\\ 5)$",
+      "$(3,\\ 8)$",
+      "$(1,\\ -12)$",
+      "$(-3,\\ -10)$",
+      "$(-7,\\ -7)$",
+      "$(-11,\\ -4)$"
+    ],
+    "answerIndex": 4
+  },
+  {
+    "id": 18,
+    "question": "A battery and two resistors X and Y are connected in series. The power transferred by the battery is $6\\ \\mathrm{W}$. The resistance of X is $10\\ \\Omega$. The voltage across Y is $4\\ \\mathrm{V}$. What is the current in the circuit?",
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q18.png"],
+    "options": [
+      "$\\frac{2}{5}\\ \\mathrm{A}$",
+      "$\\frac{3}{5}\\ \\mathrm{A}$",
+      "$\\frac{3}{4}\\ \\mathrm{A}$",
+      "$1\\ \\mathrm{A}$",
+      "$\\frac{3}{10}\\ \\mathrm{A}$",
+      "$\\frac{3}{5}\\ \\mathrm{A}$"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 19,
+    "question": "Find the maximum value of $\\sin^2 x \\cdot 3^{-\\sin x}$ where $0^\\circ \\le x \\le 360^\\circ$.",
+    "options": [
+      "$\\frac{2}{3}$",
+      "$1$",
+      "$\\frac{3}{2}$",
+      "$2$",
+      "$3$",
+      "$6$"
+    ],
+    "answerIndex": 4
+  },
+  {
+  "id": 20,
+  "question": "A diver at the bottom of a lake of depth $d$ fills a syringe with an ideal gas and seals the nozzle. The piston remains free to move. The volume of the gas in the syringe at the bottom of the lake is $90\\,\\mathrm{cm}^3$.\nAs the diver returns to the surface, the temperature of the gas does not change.\nAt the surface of the lake the gas in the syringe is at atmospheric pressure and the volume of the gas is $720\\,\\mathrm{cm}^3$.\nWhat is the volume of the gas in the syringe at a depth $\\frac{d}{2}$?",
+  "options": [
+    "$90\\,\\mathrm{cm}^3$",
+    "$180\\,\\mathrm{cm}^3$",
+    "$270\\,\\mathrm{cm}^3$",
+    "$360\\,\\mathrm{cm}^3$",
+    "$450\\,\\mathrm{cm}^3$"
+  ],
+  "answerIndex": 3
+}
+
+]

@@ -38,6 +38,9 @@ mongoose.connect(process.env.MONGO_URI, {
 // ✅ 注册路由
 const questionRoutes = require('./routes/questions');
 const recordRoutes = require('./routes/records');
+const mockExamsRoutes = require('./routes/mockExams');
 
 app.use('/api/questions', questionRoutes);
 app.use('/api/records', recordRoutes);
+app.use('/api/mock-exams', mockExamsRoutes);
+
