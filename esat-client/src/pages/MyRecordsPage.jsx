@@ -30,7 +30,7 @@ const MyRecords = () => {
         .eq('user_id', data.user.id)
         .order('created_at', { ascending: false });
 
-      const res = await fetch('http://localhost:3000/api/questions');
+      const res = await fetch(`${API_BASE}/api/questions`);
       const questions = await res.json();
 
       setQuizRecords(quizData || []);
