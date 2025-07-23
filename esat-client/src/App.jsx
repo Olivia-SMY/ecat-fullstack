@@ -16,33 +16,9 @@ import MockExamPage from './pages/MockExamPage';
 import JsonPreview from './pages/JsonPreview';
 import MockResultPage from './pages/MockResultPage';
 import MockListPage from './pages/MockListPage';
-import TestTree from './pages/testree';
-import 'react-dropdown-tree-select/dist/styles.css';
-import 'antd/dist/reset.css'; // For Ant Design v5+
-import { TreeSelect } from 'antd';
-import AntdTreeSelectDemo from './pages/AntdTreeSelectDemo';
+import 'antd/dist/reset.css'; 
 
 function App() {
-  const treeData = [
-    {
-      title: 'Mechanics',
-      value: 'mechanics',
-      children: [
-        { title: 'Kinematics', value: 'kinematics' },
-        { title: 'Statics', value: 'statics' },
-        {
-          title: 'Dynamics',
-          value: 'dynamics',
-          children: [
-            { title: "Newton's Law", value: "newton's law" },
-            // ...etc
-          ]
-        }
-      ]
-    },
-    // ...other groups
-  ];
-
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -77,8 +53,6 @@ function App() {
       <Route path="/mock-result" element={<MockResultPage />} />
       <Route path="/mock" element={<MockListPage />} />
       <Route path="/mock/:examId" element={<MockExamPage />} />
-      <Route path="/test-tree" element={<TestTree />} />
-      <Route path="/antd-tree" element={<AntdTreeSelectDemo />} />
     </Routes>
   );
 }
