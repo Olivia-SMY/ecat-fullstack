@@ -5,19 +5,18 @@ const router = express.Router();
 const Question = require('../models/Question');
 const Record = require('../models/Record');
 
-const { Types } = mongoose; // 推荐方式
+const { Types } = mongoose;
 
+// ✅ POST: 提交练习记录（判分并保存）
 router.post('/', async (req, res) => {
   const { userId, answers: submittedAnswers } = req.body;
 
   try {
-    // 转换 questionId 为 ObjectId
     const questionIds = submittedAnswers.map(a => new Types.ObjectId(a.questionId));
 
-    // 查询所有对应的题目
+    // 获取题目
     const questions = await Question.find({ _id: { $in: questionIds } });
 
-    // 映射题目，方便查找
     const questionMap = {};
     questions.forEach(q => {
       questionMap[q._id.toString()] = q;
@@ -25,22 +24,19 @@ router.post('/', async (req, res) => {
 
     // 自动判分
     const results = submittedAnswers.map(ans => {
-  const qid = ans.questionId.toString();
-  const q = questionMap[qid];
-  if (!q) {
-    throw new Error(`题目未找到: ${qid}`);
-  }
+      const qid = ans.questionId.toString();
+      const q = questionMap[qid];
+      if (!q) {
+        throw new Error(`题目未找到: ${qid}`);
+      }
 
-  const correct = q.answerIndex;
-
-  return {
-    questionId: q._id,
-    userAnswerIndex: ans.userAnswerIndex,
-    correctAnswerIndex: correct,
-    isCorrect: ans.userAnswerIndex === correct
-  };
-});
-
+      return {
+        questionId: q._id,
+        userAnswerIndex: ans.userAnswerIndex,
+        correctAnswerIndex: q.answerIndex,
+        isCorrect: ans.userAnswerIndex === q.answerIndex,
+      };
+    });
 
     const score = results.filter(r => r.isCorrect).length;
 
@@ -48,12 +44,12 @@ router.post('/', async (req, res) => {
     const record = new Record({
       userId,
       answers: results,
-      score
+      score,
     });
 
     await record.save();
 
-    // 添加 questions 到结果中，前端显示用
+    // 返回信息
     const fullQuestions = questions.map(q => ({
       _id: q._id,
       index: q.index,
@@ -62,19 +58,39 @@ router.post('/', async (req, res) => {
       explanation: q.explanation,
       images: q.images,
       tags: q.tags,
-      difficulty: q.difficulty
+      difficulty: q.difficulty,
     }));
 
     res.status(201).json({
       message: '✅ Record saved',
       score,
       answers: results,
-      questions: fullQuestions
+      questions: fullQuestions,
     });
 
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: '❌ Server error' });
+  }
+});
+
+// ✅ GET: 获取用户答题记录（用于“我的记录”页面）
+router.get('/', async (req, res) => {
+  const { userId } = req.query;
+
+  if (!userId) {
+    return res.status(400).json({ error: '缺少 userId 参数' });
+  }
+
+  try {
+    const records = await Record.find({ userId })
+      .sort({ createdAt: -1 })
+      .limit(20); // 可根据需要调整数量
+
+    res.json(records);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: '获取记录失败' });
   }
 });
 
