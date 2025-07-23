@@ -14,130 +14,163 @@ import { TreeSelect } from 'antd';
 
 const treeData = [
   {
-    title: 'Mechanics',
-    value: 'mechanics',
+    title: 'Physics',
+    value: 'physics',
     children: [
       {
-        title: 'Kinematics',
-        value: 'kinematics',
+        title: 'Mechanics',
+        value: 'mechanics',
         children: [
-          { title: 'Projectiles', value: 'projectiles' },
-          { title: 'Reference Frames', value: 'reference frames' },
+          { title: 'Kinematics', value: 'kinematics' },
+          { title: 'Statics', value: 'statics' },
+          { title: 'Dynamics', value: 'dynamics' },
         ]
       },
       {
-        title: 'Statics',
-        value: 'statics',
+        title: 'Materials',
+        value: 'materials',
         children: [
-          { title: 'Moments', value: 'moments' },
+          { title: "Young's Modulus", value: "young's modulus" },
+          { title: 'Stress and Strain', value: 'stress and strain' },
         ]
       },
       {
-        title: 'Dynamics',
-        value: 'dynamics',
-        children: [
-          { title: "Newton's Law", value: "newton's law" },
-          { title: 'Work & Energy', value: 'work &energy' },
-          { title: 'Momentum', value: 'momentum' },
-          { title: 'SHM', value: 'SHM' },
-          { title: 'Circular Motion', value: 'circular motion' },
-          { title: 'Rotation', value: 'rotation' },
-          { title: 'Angular Momentum', value: 'angular momentum' },
-          { title: 'Gravtiational Fields', value: 'gravtiational fields' },
-          { title: 'Springs', value: 'springs' },
-        ]
-      }
-    ]
-  },
-  {
-    title: 'Materials',
-    value: 'materials',
-    children: [
-      { title: "Young's Modulus", value: "young's modulus" },
-      { title: 'Stress and Strain', value: 'stress and strain' },
-    ]
-  },
-  {
-    title: 'Dimensional Analysis',
-    value: 'dimensional analysis',
-    children: []
-  },
-  {
-    title: 'Waves & Optics',
-    value: 'waves_optics',
-    children: [
-      { title: 'Wave', value: 'wave' },
-      { title: 'Stationary Waves', value: 'stationary waves' },
-      { title: 'Optics', value: 'optics' },
-      { title: 'Reflection', value: 'reflection' },
-      { title: 'Refraction', value: 'refraction' }
-    ]
-  },
-  {
-    title: 'Electricity & Magnetism',
-    value: 'electricity_magnetism',
-    children: [
+        title: 'Dimensional Analysis',
+        value: 'dimensional analysis',
+        children: []
+      },
       {
-        title: 'Electricity',
-        value: 'electricity',
+        title: 'Waves & Optics',
+        value: 'waves_optics',
         children: [
-          { title: 'Electric Fields', value: 'electric fields' },
+          { title: 'Wave', value: 'wave' },
+          { title: 'Stationary Waves', value: 'stationary waves' },
+          { title: 'Optics', value: 'optics' },
+          { title: 'Reflection', value: 'reflection' },
+          { title: 'Refraction', value: 'refraction' }
+        ]
+      },
+      {
+        title: 'Electricity & Magnetism',
+        value: 'electricity_magnetism',
+        children: [
           {
-            title: 'Circuits',
-            value: 'circuits',
+            title: 'Electricity',
+            value: 'electricity',
             children: [
-              { title: 'Capacitors', value: 'capacitors' },
-              { title: 'Resistance', value: 'resistance' },
+              { title: 'Electric Fields', value: 'electric fields' },
+              {
+                title: 'Circuits',
+                value: 'circuits',
+                children: [
+                  { title: 'Capacitors', value: 'capacitors' },
+                  { title: 'Resistance', value: 'resistance' },
+                ]
+              }
+            ]
+          },
+          {
+            title: 'Magnetism',
+            value: 'magnetism',
+            children: [
+              { title: 'Magnetic Fields', value: 'magnetic fields' },
             ]
           }
         ]
       },
       {
-        title: 'Magnetism',
-        value: 'magnetism',
+        title: 'Thermofluids',
+        value: 'thermal_fluids',
         children: [
-          { title: 'Magnetic Fields', value: 'magnetic fields' },
-        ]
-      }
-    ]
-  },
-  {
-    title: 'Thermofluids',
-    value: 'thermal_fluids',
-    children: [
-      {
-        title: 'Thermal Physics',
-        value: 'thermal physics',
-        children: [
-          { title: 'Heat Capacity', value: 'heat capacity' },
-          { title: 'Ideal Gases', value: 'ideal gases' },
+          {
+            title: 'Thermal Physics',
+            value: 'thermal physics',
+            children: [
+              { title: 'Heat Capacity', value: 'heat capacity' },
+              { title: 'Ideal Gases', value: 'ideal gases' },
+            ]
+          },
+          {
+            title: 'Fluids',
+            value: 'fluids',
+            children: [
+              { title: 'Pressure', value: 'pressure' },
+              { title: 'Bounyancy', value: 'bounyancy' },
+            ]
+          }
         ]
       },
       {
-        title: 'Fluids',
-        value: 'fluids',
+        title: 'Modern Physics',
+        value: 'modern_physics',
         children: [
-          { title: 'Pressure', value: 'pressure' },
-          { title: 'Bounyancy', value: 'bounyancy' },
+          { title: 'Quantum', value: 'quantum' },
+          { title: 'Nuclear', value: 'nuclear' },
+          { title: 'Radioactive Decay', value: 'radioactive decay' },
+          { title: 'Energy Levels', value: 'energy levels' }
         ]
+      },
+      // 'Other Topics' now only includes items not moved elsewhere
+      {
+        title: 'Other Topics',
+        value: 'other',
+        children: []
       }
     ]
   },
   {
-    title: 'Modern Physics',
-    value: 'modern_physics',
+    title: 'Math',
+    value: 'math',
     children: [
-      { title: 'Quantum', value: 'quantum' },
-      { title: 'Nuclear', value: 'nuclear' },
-      { title: 'Radioactive Decay', value: 'radioactive decay' },
-      { title: 'Energy Levels', value: 'energy levels' }
+      {
+        title: 'Algebra',
+        value: 'algebra',
+        children: [
+          { title: 'Equations', value: 'equations' },
+          { title: 'Polynomials', value: 'polynomials' },
+          { title: 'Inequalities', value: 'inequalities' },
+          { title: 'Functions', value: 'functions' },
+          { title: 'Sequences and Series', value: 'sequences and series' },
+        ]
+      },
+      {
+        title: 'Geometry',
+        value: 'geometry',
+        children: [
+          { title: 'Triangles', value: 'triangles' },
+          { title: 'Circles', value: 'circles' },
+          { title: 'Coordinate Geometry', value: 'coordinate geometry' },
+          { title: 'Vectors', value: 'vectors' },
+        ]
+      },
+      {
+        title: 'Trigonometry',
+        value: 'trigonometry',
+        children: [
+          { title: 'Trigonometric Functions', value: 'trig functions' },
+          { title: 'Identities & Equations', value: 'trig identities' },
+        ]
+      },
+      {
+        title: 'Calculus',
+        value: 'calculus',
+        children: [
+          { title: 'Differentiation', value: 'differentiation' },
+          { title: 'Integration', value: 'integration' },
+          { title: 'Limits', value: 'limits' },
+          { title: 'Differential Equations', value: 'differential equations' },
+        ]
+      },
+      {
+        title: 'Probability',
+        value: 'probability',
+        children: [
+          { title: 'Permutation & Combination', value: 'PC' },
+          { title: 'Random Variables', value: 'random variables' },
+          { title: 'Distributions', value: 'distributions' },
+        ]
+      }
     ]
-  },
-  // 'Other Topics' now only includes items not moved elsewhere
-  {
-    title: 'Other Topics',
-    value: 'other',
-    children: []
   }
 ];
 
