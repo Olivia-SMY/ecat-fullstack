@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/supabase';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE } from '../utils/config';
 
 const getChoiceLabel = (i) => i != null ? String.fromCharCode(65 + i) : '—';
 
@@ -14,28 +15,33 @@ const MyRecords = () => {
 
   useEffect(() => {
     const load = async () => {
-      const { data } = await supabase.auth.getUser();
-      if (!data.user) return;
-      setUser(data.user);
+      const { data: userData } = await supabase.auth.getUser();
+      const currentUser = userData?.user;
+      if (!currentUser) return;
+      setUser(currentUser);
 
       const { data: quizData } = await supabase
         .from('records')
         .select('*')
-        .eq('user_id', data.user.id)
+        .eq('user_id', currentUser.id)
         .order('created_at', { ascending: false });
 
       const { data: mockData } = await supabase
         .from('mock_exam_results')
         .select('*')
-        .eq('user_id', data.user.id)
+        .eq('user_id', currentUser.id)
         .order('created_at', { ascending: false });
 
-      const res = await fetch(`${API_BASE}/api/questions`);
-      const questions = await res.json();
+      try {
+        const res = await fetch(`${API_BASE}/api/questions`);
+        const questions = await res.json();
+        setAllQuestions(Array.isArray(questions) ? questions : []);
+      } catch (err) {
+        console.error('❌ 获取题目失败:', err);
+      }
 
       setQuizRecords(quizData || []);
       setMockRecords(mockData || []);
-      setAllQuestions(questions || []);
     };
 
     load();
@@ -43,7 +49,9 @@ const MyRecords = () => {
 
   const findQuestion = (id) => {
     const strId = id?.toString();
-    return allQuestions.find(q => q._id?.toString() === strId || q.id?.toString() === strId);
+    return Array.isArray(allQuestions)
+      ? allQuestions.find(q => q._id?.toString() === strId || q.id?.toString() === strId)
+      : null;
   };
 
   const formatTime = (s) => `${Math.floor(s / 60)} 分 ${s % 60} 秒`;
@@ -54,7 +62,6 @@ const MyRecords = () => {
     <div style={{ padding: '40px', fontFamily: 'Arial, sans-serif' }}>
       <h1>📜 我的答题记录</h1>
 
-      {/* 切换按钮 */}
       <div style={{ marginBottom: 20 }}>
         <button onClick={() => setMode('quiz')} style={{
           marginRight: 10,
@@ -79,7 +86,6 @@ const MyRecords = () => {
         </button>
       </div>
 
-      {/* 练习记录 */}
       {mode === 'quiz' && (
         <>
           {quizRecords.length === 0 ? (
@@ -127,7 +133,6 @@ const MyRecords = () => {
         </>
       )}
 
-      {/* 模考记录 */}
       {mode === 'mock' && (
         <>
           {mockRecords.length === 0 ? (
