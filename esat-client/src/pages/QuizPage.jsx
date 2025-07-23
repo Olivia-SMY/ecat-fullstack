@@ -4,20 +4,141 @@ import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
-import Select from 'react-select';
 import { supabase } from '../utils/supabase';
 import { API_BASE } from '../utils/config';
 import axios from 'axios';
 import LoadingLottie from '../components/LoadingLottie';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-const tagOptions = [
-  { value: 'mechanics', label: 'Mechanics' },
-  { value: 'electricity', label: 'Electricity' },
-  { value: 'optics', label: 'Optics' },
-  { value: 'thermodynamics', label: 'Thermodynamics' },
-  { value: 'waves', label: 'Waves' },
-  { value: 'quantum', label: 'Quantum' }
+import { TreeSelect } from 'antd';
+
+const treeData = [
+  {
+    title: 'Mechanics',
+    value: 'mechanics',
+    children: [
+      {
+        title: 'Kinematics',
+        value: 'kinematics',
+        children: [
+          { title: 'Projectiles', value: 'projectiles' },
+          { title: 'Reference Frames', value: 'reference frames' },
+        ]
+      },
+      {
+        title: 'Statics',
+        value: 'statics',
+        children: [
+          { title: 'Moments', value: 'moments' },
+        ]
+      },
+      {
+        title: 'Dynamics',
+        value: 'dynamics',
+        children: [
+          { title: "Newton's Law", value: "newton's law" },
+          { title: 'Work & Energy', value: 'work &energy' },
+          { title: 'Momentum', value: 'momentum' },
+          { title: 'SHM', value: 'SHM' },
+          { title: 'Circular Motion', value: 'circular motion' },
+          { title: 'Rotation', value: 'rotation' },
+          { title: 'Angular Momentum', value: 'angular momentum' },
+          { title: 'Gravtiational Fields', value: 'gravtiational fields' },
+          { title: 'Springs', value: 'springs' },
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Materials',
+    value: 'materials',
+    children: [
+      { title: "Young's Modulus", value: "young's modulus" },
+      { title: 'Stress and Strain', value: 'stress and strain' },
+    ]
+  },
+  {
+    title: 'Dimensional Analysis',
+    value: 'dimensional analysis',
+    children: []
+  },
+  {
+    title: 'Waves & Optics',
+    value: 'waves_optics',
+    children: [
+      { title: 'Wave', value: 'wave' },
+      { title: 'Stationary Waves', value: 'stationary waves' },
+      { title: 'Optics', value: 'optics' },
+      { title: 'Reflection', value: 'reflection' },
+      { title: 'Refraction', value: 'refraction' }
+    ]
+  },
+  {
+    title: 'Electricity & Magnetism',
+    value: 'electricity_magnetism',
+    children: [
+      {
+        title: 'Electricity',
+        value: 'electricity',
+        children: [
+          { title: 'Electric Fields', value: 'electric fields' },
+          {
+            title: 'Circuits',
+            value: 'circuits',
+            children: [
+              { title: 'Capacitors', value: 'capacitors' },
+              { title: 'Resistance', value: 'resistance' },
+            ]
+          }
+        ]
+      },
+      {
+        title: 'Magnetism',
+        value: 'magnetism',
+        children: [
+          { title: 'Magnetic Fields', value: 'magnetic fields' },
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Thermofluids',
+    value: 'thermal_fluids',
+    children: [
+      {
+        title: 'Thermal Physics',
+        value: 'thermal physics',
+        children: [
+          { title: 'Heat Capacity', value: 'heat capacity' },
+          { title: 'Ideal Gases', value: 'ideal gases' },
+        ]
+      },
+      {
+        title: 'Fluids',
+        value: 'fluids',
+        children: [
+          { title: 'Pressure', value: 'pressure' },
+          { title: 'Bounyancy', value: 'bounyancy' },
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Modern Physics',
+    value: 'modern_physics',
+    children: [
+      { title: 'Quantum', value: 'quantum' },
+      { title: 'Nuclear', value: 'nuclear' },
+      { title: 'Radioactive Decay', value: 'radioactive decay' },
+      { title: 'Energy Levels', value: 'energy levels' }
+    ]
+  },
+  // 'Other Topics' now only includes items not moved elsewhere
+  {
+    title: 'Other Topics',
+    value: 'other',
+    children: []
+  }
 ];
 
 const QuizPage = () => {
@@ -25,6 +146,7 @@ const QuizPage = () => {
   const [answers, setAnswers] = useState({});
   const [loading, setLoading] = useState(true);
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
+  // Change selectedTags to be an array of values
   const [selectedTags, setSelectedTags] = useState([]);
   const [user, setUser] = useState(null);
   const [scoreRange, setScoreRange] = useState([1, 10]);
@@ -56,12 +178,10 @@ const QuizPage = () => {
         } else if (difficultyMode === 'range') {
           params.append('minScore', scoreRange[0].toString());
           params.append('maxScore', scoreRange[1].toString());
-
         }
-        selectedTags.forEach(tag => params.append('tags', tag.value));
-        // ✅ 添加这行查看请求参数
-      console.log('请求参数：', params.toString());
-
+        // selectedTags is now an array of values
+        selectedTags.forEach(tag => params.append('tags', tag));
+        console.log('请求参数：', params.toString());
         const res = await axios.get(`${API_BASE}/api/questions?${params.toString()}`);
         data = res.data;
       }
@@ -175,25 +295,27 @@ const QuizPage = () => {
             <div style={{ width: '300px' }}>
               <label>难度分数范围（{scoreRange[0]} ~ {scoreRange[1]}）：</label>
               <Slider
-  range
-  min={1}
-  max={10}
-  step={0.1}
-  value={scoreRange}
-  onChange={(val) => setScoreRange(val)}
-/>
-
+                range
+                min={1}
+                max={10}
+                step={0.1}
+                value={scoreRange}
+                onChange={(val) => setScoreRange(val)}
+              />
             </div>
           )}
 
           <div style={{ width: '300px' }}>
             <label>标签（可多选）：</label>
-            <Select
-              isMulti
-              options={tagOptions}
+            <TreeSelect
+              treeData={treeData}
               value={selectedTags}
               onChange={setSelectedTags}
+              treeCheckable={true}
+              showCheckedStrategy={TreeSelect.SHOW_PARENT}
               placeholder="选择标签"
+              style={{ width: 300 }}
+              multiple
             />
           </div>
 

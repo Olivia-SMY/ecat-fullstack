@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.52.0",
+    "antd": "^5.26.6",
     "axios": "^1.10.0",
     "katex": "^0.16.22",
     "lottie-react": "^2.4.1",
