@@ -174,6 +174,31 @@ const treeData = [
   }
 ];
 
+// 递归获取所有子标签 value
+function getAllDescendantTags(tree, selected) {
+  const result = new Set();
+  function traverse(nodes) {
+    for (const node of nodes) {
+      if (selected.includes(node.value)) {
+        // 选中当前节点，收集所有后代
+        collectAll(node);
+      } else if (node.children && node.children.length > 0) {
+        traverse(node.children);
+      }
+    }
+  }
+  function collectAll(node) {
+    result.add(node.value);
+    if (node.children && node.children.length > 0) {
+      for (const child of node.children) {
+        collectAll(child);
+      }
+    }
+  }
+  traverse(tree);
+  return Array.from(result);
+}
+
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
@@ -343,7 +368,11 @@ const QuizPage = () => {
             <TreeSelect
               treeData={treeData}
               value={selectedTags}
-              onChange={setSelectedTags}
+              onChange={vals => {
+                // 自动递归选中所有子标签
+                const allTags = getAllDescendantTags(treeData, vals);
+                setSelectedTags(allTags);
+              }}
               treeCheckable={true}
               showCheckedStrategy={TreeSelect.SHOW_PARENT}
               placeholder="选择标签"
