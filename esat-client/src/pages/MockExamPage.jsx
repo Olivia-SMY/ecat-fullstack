@@ -29,12 +29,8 @@ function LatexText({ text }) {
 }
 
 function MockExamPage() {
-  // 支持 /mock/:year/:section 和 /mock/:examId
-  const params = useParams();
-  let examId = params.examId;
-  if (!examId && params.year && params.section) {
-    examId = `mock_${params.year}_s${params.section}`;
-  }
+  
+  const { examId } = useParams();
   const navigate = useNavigate();
 
   const [questions, setQuestions] = useState([]);
@@ -188,8 +184,8 @@ function MockExamPage() {
             <div style={{ marginBottom: 20 }}>
               <strong>Q {current + 1}:</strong>
               <div style={{ marginTop: 8, fontSize: 18 }}>
-                {question.text ? (
-                  <LatexText text={question.text} />
+                {question.question ? (
+                  <LatexText text={question.question} />
                 ) : (
                   <span style={{ color: 'gray' }}>[题干为空]</span>
                 )}

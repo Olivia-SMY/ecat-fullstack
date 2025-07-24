@@ -1,0 +1,150 @@
+[
+  {
+    "id": 21,
+    "question": "$x^2 - x - 6$ is a factor of $x^3 + ax^2 + 2x + b$, where $a$ and $b$ are real constants. What is the value of $a + b$?",
+    "options": ["$-39$", "$-21$", "$-3$", "$-\\frac{3}{5}$", "$\\frac{3}{5}$", "$3$", "$21$", "$39$"],
+    "answerIndex": 7
+  },
+  {
+    "id": 22,
+    "question": "Two pipes contain air at the same temperature and pressure.\nA stationary sound wave is formed in the first pipe, which is closed at one end and open at the other end. The lowest frequency of stationary sound wave that can be formed in this pipe is $4000\\ \\mathrm{Hz}$.\n\nThe second pipe has the same length as the first pipe, but is open at both ends.\nWhat is the lowest frequency of stationary sound wave that can be formed in the second pipe?",
+    "options": ["$1000\\ \\mathrm{Hz}$", "$2000\\ \\mathrm{Hz}$", "$4000\\ \\mathrm{Hz}$", "$8000\\ \\mathrm{Hz}$", "$16000\\ \\mathrm{Hz}$"],
+    "answerIndex": 3
+  },
+  {
+    "id": 23,
+    "question": "An arithmetic progression has first term $a$ and common difference $d$.\nThe sum of the first 9 terms plus the sum of the first 10 terms is equal to the sum of the first 11 terms.\nWhich of the following is a correct expression for $a$ in terms of $d$?",
+    "options": ["$a = d - \\frac{13}{4}$", "$a = d - \\frac{15}{4}$", "$a = d - \\frac{16}{3}$", "$a = d - \\frac{19}{3}$", "$a = -7d$", "$a = -8d$"],
+    "answerIndex": 0
+  },
+  {
+    "id": 24,
+    "question": "A cannon ball of mass $2.6\\ \\mathrm{kg}$ is fired horizontally from a cannon on the top of a cliff at a speed of $90\\ \\mathrm{m\\,s^{-1}}$.\nThe height of the cliff above the horizontal ground below is $45\\ \\mathrm{m}$.\nWhat is the magnitude of the impulse that acts on the ball between leaving the cannon and reaching the ground?\n(Gravitational field strength = $10\\ \\mathrm{N\\,kg^{-1}}$, assume that air resistance is negligible)",
+    "options": ["$8.7\\ \\mathrm{N\\,s}$", "$13\\ \\mathrm{N\\,s}$", "$52\\ \\mathrm{N\\,s}$", "$78\\ \\mathrm{N\\,s}$", "$117\\ \\mathrm{N\\,s}$", "$234\\ \\mathrm{N\\,s}$", "$900\\ \\mathrm{N\\,s}$"],
+    "answerIndex": 3
+  },
+  {
+  "id": 25,
+  "question": "The first three terms of a convergent geometric progression are: $2p$, $p - 3$, $p - 7$.\nWhat is the sum to infinity of this progression?",
+  "options": [
+    "$-54$", "$-27$", "$-\\frac{13}{2}$", "$-2$", "$2$", "$\\frac{13}{2}$", "$27$", "$54$"
+  ],
+  "answerIndex": 6
+  },
+  {
+    "id": 26,
+    "question": "A child on a sledge is travelling straight down a snow-covered slope at a constant speed of $15\\ \\mathrm{m\\,s^{-1}}$.\nThe mass of the child and sledge together is $60\\ \\mathrm{kg}$.\nThe angle of the slope to the horizontal is $30^\\circ$.\nWhat is the rate at which thermal energy is being produced due to friction forces?\n(Gravitational field strength = $10\\ \\mathrm{N\\,kg^{-1}}$)",
+    "options": [
+      "$450\\ \\mathrm{W}$", "$900\\ \\mathrm{W}$", "$4500\\ \\mathrm{W}$", "$4500\\sqrt{3}\\ \\mathrm{W}$", "$6750\\ \\mathrm{W}$", "$9000\\ \\mathrm{W}$", "$13\\,500\\ \\mathrm{W}$", "$9000\\sqrt{3}\\ \\mathrm{W}$"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 27,
+    "question": "The diagram shows a circle with centre $O$.  \nWhat is the value of $x$?",
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q27.png"],
+    "options": [
+      "$40^\\circ$", "$50^\\circ$", "$55^\\circ$", "$70^\\circ$", "$75^\\circ$", "$80^\\circ$"
+    ],
+    "answerIndex": 4
+  },
+  {
+    "id": 28,
+    "question": "The diagram shows a battery with no internal resistance and four identical resistors $P$, $Q$, $R$, and $S$.\nResistor $Q$ dissipates $4.0\\ \\mathrm{W}$ of power. \nWhat is the total power supplied by the battery?",
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q28.png"],
+    "options": [
+      "$10\\ \\mathrm{W}$", "$16\\ \\mathrm{W}$", "$24\\ \\mathrm{W}$", "$32\\ \\mathrm{W}$", "$40\\ \\mathrm{W}$"
+    ],
+    "answerIndex": 4
+  },
+  {
+    "id": 29,
+    "question": "The function $f(x) = 2x^2 - 6x + 4$ can be written in the form $f(x) = p(x + q)^2 + r$ where $p$, $q$ and $r$ are constants. What is the value of $p(r - q)$?",
+    "options": ["$2$", "$7$", "$3 - 2\\sqrt{2}$", "$3 - 7\\sqrt{2}$", "$4 - 3\\sqrt{2}$", "$4\\sqrt{2} - 6$", "$4\\sqrt{2} - 12$", "$7\\sqrt{2} - 18$"],
+    "answerIndex": 5
+  },
+  {
+    "id": 30,
+    "question": "Two identical, uniform, thin planks, each of mass $40\\ \\mathrm{kg}$, are propped up against one another in equilibrium on a rough surface. Each plank is at an angle of $30^\\circ$ to the vertical. What is the magnitude of the friction force at point $P$? (Gravitational field strength $= 10\\ \\mathrm{N\\,kg^{-1}}$)",
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q30.png"],
+    "options": ["$100\\ \\mathrm{N}$", "$\\frac{200}{\\sqrt{3}}\\ \\mathrm{N}$", "$200\\ \\mathrm{N}$", "$200\\sqrt{3}\\ \\mathrm{N}$", "$\\frac{400}{\\sqrt{3}}\\ \\mathrm{N}$", "$400\\ \\mathrm{N}$", "$400\\sqrt{3}\\ \\mathrm{N}$"],
+    "answerIndex": 1
+  },
+  {
+  "id": 31,
+  "question": "Evaluate the definite integral: $$\\int_{-(3 - \\sqrt{5})}^{3 - \\sqrt{5}} \\frac{x^2}{3 - \\sqrt{5}}\\, dx$$",
+  "options": ["$0$", "$\\frac{1}{2}$", "$1$", "$3 - \\sqrt{5}$", "$\\frac{(3 - \\sqrt{5})^3}{3}$", "$2(3 - \\sqrt{5})$"],
+  "answerIndex": 4
+  },
+  {
+    "id": 32,
+    "question": "Three blocks $P$, $Q$, and $R$ are in contact on a horizontal surface. $P$ has mass $4.0\\ \\mathrm{kg}$, and $Q$ and $R$ each have mass $2.0\\ \\mathrm{kg}$. A horizontal force of $20\\ \\mathrm{N}$ is applied to $P$, and all three blocks move together. The friction force between $P$ and the surface is $2.0\\ \\mathrm{N}$, and between $Q$, $R$ and the surface is $1.0\\ \\mathrm{N}$ each. What is the magnitude of the force that $R$ exerts on $Q$?",
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q32.png"],
+    "options": ["$2.0\\ \\mathrm{N}$", "$5.0\\ \\mathrm{N}$", "$6.0\\ \\mathrm{N}$", "$12\\ \\mathrm{N}$", "$15\\ \\mathrm{N}$", "$17\\ \\mathrm{N}$", "$19\\ \\mathrm{N}$"],
+    "answerIndex": 1
+  },
+  {
+    "id": 33,
+    "question": "A function $f$ is defined by $f(x) = \\frac{a}{x^2} + \\frac{b}{x}$. It is given that $f'(1) = 2$ and $f''(-1) = -2$. What is the value of $a + b$?",
+    "options": ["$-5$", "$-4$", "$-\\frac{7}{5}$", "$-1$", "$\\frac{9}{5}$", "$2$", "$\\frac{14}{5}$", "$3$"],
+    "answerIndex": 2
+  },
+  {
+    "id": 34,
+    "question": "An object is released from rest at a height $H$ above the ground and falls freely in a uniform gravitational field. At time $t$ after being released, it has fallen a distance $s$ and is at a height $h$ above the ground, travelling at speed $v$. Which of the rows show a possible pair of quantities for the axes in a graph? (Assume air resistance is negligible)",
+    "images": [
+    "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q34a.png",
+    "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q34b.png",
+    "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q34c.png"
+  ],
+    "options": ["none of them", "1 only", "2 only", "3 only", "1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"],
+    "answerIndex": 6
+  },
+  {
+    "id": 35,
+    "question": "Find the real value of $x$ that satisfies $\\log_3(x^2 + 3x + 2) = 2 + \\log_3(x^2 + 2x)$",
+    "options": ["$\\frac{1}{8}$", "$\\frac{1}{7}$", "$\\frac{1}{6}$", "$\\frac{1}{2}$", "$2$", "$7$"],
+    "answerIndex": 0
+  },
+  {
+    "id": 36,
+    "question": "A $20\\ \\mathrm{V}$ battery of negligible internal resistance is connected in series with a $20\\ \\Omega$ resistor and a cylindrical conductor. The current in the circuit is $0.20\\ \\mathrm{A}$.\n\nThe cylindrical conductor is now removed, melted and re-formed into a new cylinder. After the cylinder has cooled to its original temperature, its length is 4 times greater than that of the original cylinder.\n\nWhat is the resistance of the new cylinder?",
+    "options": ["$5.0\\ \\Omega$", "$20\\ \\Omega$", "$320\\ \\Omega$", "$400\\ \\Omega$", "$1280\\ \\Omega$", "$1600\\ \\Omega$"],
+    "answerIndex": 4
+  },
+  {
+    "id": 37,
+    "question": "What is the constant term in the simplified binomial expansion of $\\left(\\frac{2}{x} + x\\right)^8$?",
+    "options": ["$\\frac{7}{2}$", "$\\frac{35}{8}$", "$\\frac{1}{16}$", "$\\frac{7}{256}$", "$\\frac{35}{1024}$", "$\\frac{1}{2048}$"],
+    "answerIndex": 1
+  },
+  {
+    "id": 38,
+    "question": "A sound wave can travel from a source at $P$ to a detector at $R$ directly or by reflecting at $Q$.\n\nThe angle between $PR$ and $PQ$ is $30^\\circ$ and the distance from $P$ to $R$ is $d$.\n\nThere is a phase difference of $\\pi$ radians between the incident and reflected wave at $Q$.\n\nWaves that reach $R$ via $Q$ are in phase with waves that reach $R$ directly from $P$.\n\nWhich expression gives the greatest wavelength of sound waves for which this is true?",
+    "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_Q38.png"],
+    "options": [
+      "$2d \\left(1 - \\frac{1}{\\sqrt{3}}\\right)$",
+      "$d \\left(1 - \\frac{1}{\\sqrt{3}}\\right)$",
+      "$d(2 - \\sqrt{3})$",
+      "$\\frac{4d}{3}$",
+      "$\\frac{2d}{3}$"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 39,
+    "question": "Given that $x^2 + y^2 = 1$, what is the greatest possible value of $2x + 3y$?",
+    "options": ["$\\frac{7}{2}$", "$3$", "$\\frac{5\\sqrt{2}}{2}$", "$7$", "$10$", "$\\frac{13\\sqrt{10}}{10}$", "$13$", "$\\frac{12\\sqrt{13}}{13}$"],
+    "answerIndex": 6
+  },
+  {
+    "id": 40,
+    "question": "Two springs have spring constants of $200\\ \\mathrm{N\\,m^{-1}}$ and $600\\ \\mathrm{N\\,m^{-1}}$, respectively.\n\nThe springs are joined in series, end-to-end, and stretched so that their combined extension is $0.80\\ \\mathrm{m}$.\n\nWhat is the total strain energy stored in the springs?",
+    "options": ["$48\\ \\mathrm{J}$", "$96\\ \\mathrm{J}$", "$112\\ \\mathrm{J}$", "$120\\ \\mathrm{J}$", "$240\\ \\mathrm{J}$", "$256\\ \\mathrm{J}$", "$512\\ \\mathrm{J}$"],
+    "answerIndex": 0
+  }
+
+]
+
+
+

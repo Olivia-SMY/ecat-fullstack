@@ -21,7 +21,7 @@ const MockListPage = () => {
                 backgroundColor: '#f9f9f9',
                 fontSize: 18
               }}
-              onClick={() => navigate(`/mock/${year}`)}
+              onClick={() => navigate(`/mock-year/${year}`)}
             >
               <strong>ENGAA {year}</strong>
             </div>

@@ -60,7 +60,7 @@ const HomePage = () => {
     🎯 筛选模式（按标签出题）
   </button>
 
-  <button onClick={() => navigate('/mock')}>
+  <button onClick={() => navigate('/mock-exams')}>
   ⌛ 模拟考试（计时真题）
 </button>
 

@@ -51,9 +51,9 @@ function App() {
       <Route path="/qupload" element={<Qupload />} />
       <Route path="/json-preview" element={<JsonPreview />} />
       <Route path="/mock-result" element={<MockResultPage />} />
-      <Route path="/mock" element={<MockListPage />} />
-      <Route path="/mock/:year/:section" element={<MockExamPage />} />
-      <Route path="/mock/:year" element={<MockYearPage />} />
+      <Route path="/mock-exams/:examId" element={<MockExamPage />} />
+      <Route path="/mock-exams" element={<MockListPage />} />
+      <Route path="/mock-year/:year" element={<MockYearPage />} />
     </Routes>
   );
 }
