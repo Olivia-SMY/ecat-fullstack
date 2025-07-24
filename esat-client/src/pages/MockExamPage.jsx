@@ -29,7 +29,12 @@ function LatexText({ text }) {
 }
 
 function MockExamPage() {
-  const { examId } = useParams();
+  // 支持 /mock/:year/:section 和 /mock/:examId
+  const params = useParams();
+  let examId = params.examId;
+  if (!examId && params.year && params.section) {
+    examId = `mock_${params.year}_s${params.section}`;
+  }
   const navigate = useNavigate();
 
   const [questions, setQuestions] = useState([]);

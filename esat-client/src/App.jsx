@@ -16,6 +16,7 @@ import MockExamPage from './pages/MockExamPage';
 import JsonPreview from './pages/JsonPreview';
 import MockResultPage from './pages/MockResultPage';
 import MockListPage from './pages/MockListPage';
+import MockYearPage from './pages/MockYearPage';
 import 'antd/dist/reset.css'; 
 
 function App() {
@@ -48,11 +49,11 @@ function App() {
       <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route path="/update-password" element={<UpdatePasswordPage />} />
       <Route path="/qupload" element={<Qupload />} />
-      <Route path="/mock/:examId" element={<MockExamPage />} />
       <Route path="/json-preview" element={<JsonPreview />} />
       <Route path="/mock-result" element={<MockResultPage />} />
       <Route path="/mock" element={<MockListPage />} />
-      <Route path="/mock/:examId" element={<MockExamPage />} />
+      <Route path="/mock/:year/:section" element={<MockExamPage />} />
+      <Route path="/mock/:year" element={<MockYearPage />} />
     </Routes>
   );
 }
