@@ -61,7 +61,7 @@ function MockResultPage() {
                 backgroundColor: isCorrect ? '#e8f5e9' : '#ffebee',
               }}
             >
-              <div><strong>题目 {idx + 1}:</strong> <LatexText text={q.text || '[题干为空]'} /></div>
+              <div><strong>题目 {idx + 1}:</strong> <LatexText text={q.question || '[题干为空]'} /></div>
               <div>你的答案: <LatexText text={userOpt || '未作答'} /></div>
               <div>正确答案: <LatexText text={correctOpt} /></div>
             </li>

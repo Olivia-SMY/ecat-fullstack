@@ -15,15 +15,25 @@ const MockYearPage = () => {
         const filtered = res.data.filter(exam => exam.title.includes(year));
         // 提取 Section
         const mapped = filtered.map(exam => {
-          // 支持 1a, 1b, 2 等
-          const match = exam.title.match(/S(\\d+[ab]?)/i);
+          const match = exam.title.match(/S(\d+[ab]?)/i);
           return {
             _id: exam._id,
-            section: match ? match[0] : '未知',
+            section: match ? match[0].toUpperCase() : '未知', // 统一大写
             title: exam.title
           };
         });
-        setSections(mapped);
+
+        // 自定义 Section 顺序
+        const sectionOrder = ['S1A', 'S1B', 'S2'];
+
+        const sortedSections = mapped.sort((a, b) => {
+          const idxA = sectionOrder.indexOf(a.section);
+          const idxB = sectionOrder.indexOf(b.section);
+          // 未知的排最后
+          return (idxA === -1 ? 999 : idxA) - (idxB === -1 ? 999 : idxB);
+        });
+
+        setSections(sortedSections);
       })
       .catch(err => console.error('❌ 获取考试列表失败:', err));
   }, [year]);

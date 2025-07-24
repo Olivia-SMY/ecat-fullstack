@@ -9,7 +9,7 @@ const MockExam = require('./models/MockExam');
 console.log('[DEBUG] MONGO_URI =', process.env.MONGO_URI);
 
 // 读取 JSON 文件
-const filePath = path.join(__dirname, 'data', 'Q2023S1b.json');
+const filePath = path.join(__dirname, 'data', 'Q2023S1a.json');
 const rawQuestions = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
 // 连接 MongoDB 并导入题目和创建 MockExam
@@ -18,8 +18,8 @@ mongoose.connect(process.env.MONGO_URI)
     console.log('✅ MongoDB connected');
 
     // 1. 清空旧的 mock 题目和 mockExam
-    await Question.deleteMany({ isMock: true });
-    await MockExam.deleteMany({ source: 'mock_2023_s1a' });
+    await Question.deleteMany({ source: 'eng_2023_s1a' });
+    await MockExam.deleteMany({ source: 'eng_2023_s1a' });
     console.log('🧹 已清空旧的 mock 题目和 mockExam');
 
     // 2. 导入新题目
@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGO_URI)
       difficulty: 'medium',
       difficultyScore: 3.0,
       isMock: true,
-      source: 'mock_2023_s1a',
+      source: 'eng_2023_s1a', // 这里标记为 section 1a
     }));
 
     const inserted = await Question.insertMany(formatted);
@@ -42,8 +42,8 @@ mongoose.connect(process.env.MONGO_URI)
 
     // 3. 创建新的 MockExam 文档
     const mockExam = new MockExam({
-      title: '2023 S1b Mock Exam',
-      source: 'mock_2023_s1a',
+      title: '2023 S1a Mock Exam',
+      source: 'eng_2023_s1a',
       questions: inserted.map(q => q._id),
       timeLimit: 1800 // 可根据需要调整
     });
