@@ -11,6 +11,7 @@ const MyRecords = () => {
   const [mockRecords, setMockRecords] = useState([]);
   const [user, setUser] = useState(null);
   const [allQuestions, setAllQuestions] = useState([]);
+  const [mockExams, setMockExams] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,6 +43,15 @@ const MyRecords = () => {
 
       setQuizRecords(quizData || []);
       setMockRecords(mockData || []);
+
+      // 获取所有 MockExam
+      try {
+        const res = await fetch(`${API_BASE}/api/mock-exams/`);
+        const exams = await res.json();
+        setMockExams(Array.isArray(exams) ? exams : []);
+      } catch (err) {
+        console.error('❌ 获取考试列表失败:', err);
+      }
     };
 
     load();
@@ -55,6 +65,11 @@ const MyRecords = () => {
   };
 
   const formatTime = (s) => `${Math.floor(s / 60)} 分 ${s % 60} 秒`;
+
+  const getExamTitle = (id) => {
+    const exam = mockExams.find(e => e._id === id || e._id?.toString() === id?.toString());
+    return exam ? exam.title : id;
+  };
 
   if (!user) return <p>请先登录</p>;
 
@@ -151,7 +166,7 @@ const MyRecords = () => {
               <tbody>
                 {mockRecords.map((record) => (
                   <tr key={record.id} style={{ borderBottom: '1px solid #eee' }}>
-                    <td style={{ padding: '8px' }}>{record.exam_id}</td>
+                    <td style={{ padding: '8px' }}>{getExamTitle(record.exam_id)}</td>
                     <td style={{ padding: '8px' }}>{record.score} / 20</td>
                     <td style={{ padding: '8px' }}>{record.scaled_score ?? '—'}</td>
                     <td style={{ padding: '8px' }}>{formatTime(record.elapsed_time)}</td>
