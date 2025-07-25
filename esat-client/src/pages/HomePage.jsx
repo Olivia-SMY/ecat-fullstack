@@ -5,12 +5,25 @@ import { Typewriter } from 'react-simple-typewriter';
 
 const HomePage = () => {
   const [user, setUser] = useState(null);
+  const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await supabase.auth.getUser();
       setUser(data.user);
+
+      if (data.user) {
+        // 查询 profiles 表
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('username')
+          .eq('id', data.user.id)
+          .single();
+        if (profile && profile.username) {
+          setUsername(profile.username);
+        }
+      }
     };
     fetchUser();
   }, []);
@@ -49,7 +62,10 @@ const HomePage = () => {
 
       {user ? (
         <>
-          <p style={{ marginTop: 20 }}>👋 当前登录用户：<strong>{user.email}</strong></p>
+          <p style={{ marginTop: 20 }}>
+            👋 当前登录用户：
+            <strong>{username ? username : user.email}</strong>
+          </p>
 
           <div style={{ marginTop: 30, display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: 240 }}>
   <button onClick={() => navigate('/quiz?mode=random')}>

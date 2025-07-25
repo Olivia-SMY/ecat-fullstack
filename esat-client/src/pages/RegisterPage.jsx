@@ -1,9 +1,10 @@
 // src/pages/RegisterPage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../utils/supabase';
 
 const RegisterPage = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState('');
@@ -13,17 +14,16 @@ const RegisterPage = () => {
     e.preventDefault();
     setStatus('正在注册...');
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        emailRedirectTo: 'https://smyesatweb2.netlify.app/login' // 👈 添加跳转地址
+        emailRedirectTo: 'https://smyesatweb2.netlify.app/login'
       }
     });
 
-    if (error) {
-      setStatus(`❌ 注册失败：${error.message}`);
-    } else {
+    if (!error) {
+      localStorage.setItem('pendingUsername', username);
       setStatus('✅ 注册成功！请前往邮箱确认并登录');
     }
   };
@@ -32,6 +32,9 @@ const RegisterPage = () => {
     <div style={{ padding: 40 }}>
       <h2>注册新用户</h2>
       <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', maxWidth: 300 }}>
+        <label>用户名:</label>
+        <input value={username} onChange={e => setUsername(e.target.value)} required />
+
         <label>Email:</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
 

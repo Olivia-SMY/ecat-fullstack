@@ -1,5 +1,5 @@
 // src/App.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import QuizPage from './pages/QuizPage';
 import QuizResultPage from './pages/QuizResultPage';
@@ -18,8 +18,41 @@ import MockResultPage from './pages/MockResultPage';
 import MockListPage from './pages/MockListPage';
 import MockYearPage from './pages/MockYearPage';
 import 'antd/dist/reset.css'; 
+import { supabase } from './utils/supabase';
 
 function App() {
+  useEffect(() => {
+    const insertProfileIfNeeded = async () => {
+      const pendingUsername = localStorage.getItem('pendingUsername');
+      if (!pendingUsername) return;
+
+      const { data: userData } = await supabase.auth.getUser();
+      const user = userData?.user;
+      if (!user) return;
+
+      // 检查 profiles 表是否已有记录
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('id', user.id)
+        .single();
+
+      if (!profileData) {
+        // 用当前登录用户的 id 作为 profiles.id 插入
+        console.log('尝试写入 profiles', user?.id, pendingUsername);
+        const { error } = await supabase.from('profiles').insert([
+          { id: user.id, username: pendingUsername, email: user.email }
+        ]);
+        if (error) {
+          console.error('写入 profiles 失败:', error);
+        }
+      }
+      localStorage.removeItem('pendingUsername');
+    };
+
+    insertProfileIfNeeded();
+  }, []);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
