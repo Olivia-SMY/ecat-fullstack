@@ -41,6 +41,7 @@ function MockExamPage() {
   const [startTime, setStartTime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [examTitle, setExamTitle] = useState('');
+  const [userId, setUserId] = useState(null);
 
   // 用于防止多次初始化
   const initializedRef = useRef(false);
@@ -82,6 +83,14 @@ function MockExamPage() {
     fetchExam();
     // eslint-disable-next-line
   }, [examId]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      setUserId(data.user?.id || null);
+    };
+    fetchUser();
+  }, []);
 
   // 保存进度
   useEffect(() => {
@@ -132,9 +141,6 @@ function MockExamPage() {
 
   const submitResult = async () => {
   const elapsedTime = Date.now() - startTime;
-
-  const { data: userData, error: userError } = await supabase.auth.getUser();
-  const userId = userData?.user?.id;
 
   if (userError || !userId) {
     console.error('❌ 获取用户信息失败:', userError);
