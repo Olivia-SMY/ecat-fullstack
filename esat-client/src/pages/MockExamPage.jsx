@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import axios from 'axios';
@@ -42,15 +42,37 @@ function MockExamPage() {
   const [loading, setLoading] = useState(true);
   const [examTitle, setExamTitle] = useState('');
 
+  // 用于防止多次初始化
+  const initializedRef = useRef(false);
+
   useEffect(() => {
     const fetchExam = async () => {
       try {
         const res = await axios.get(`${API_BASE}/api/mock-exams/${examId}`);
         setQuestions(res.data.questions);
-        setAnswers(Array(res.data.questions.length).fill(null));
         setExamTitle(res.data.title || '');
-        setExamTimeLimit(res.data.timeLimit || 1800); // 新增
-        setTimeLeft(res.data.timeLimit || 1800);      // 新增
+        setExamTimeLimit(res.data.timeLimit || 1800);
+
+        // 恢复 localStorage
+        const saved = localStorage.getItem(`mockExamState_${examId}`);
+        if (saved) {
+          try {
+            const state = JSON.parse(saved);
+            if (state.examId === examId) {
+              setAnswers(state.answers || []);
+              setCurrent(state.current || 0);
+              setTimeLeft(state.timeLeft || res.data.timeLimit || 1800);
+              setStartTime(state.startTime || Date.now());
+              initializedRef.current = true;
+              return;
+            }
+          } catch (e) {}
+        }
+        // 没有保存的进度，初始化
+        setAnswers(Array(res.data.questions.length).fill(null));
+        setTimeLeft(res.data.timeLimit || 1800);
+        setStartTime(Date.now());
+        initializedRef.current = true;
       } catch (err) {
         console.error('❌ 模考加载失败:', err);
       } finally {
@@ -58,12 +80,25 @@ function MockExamPage() {
       }
     };
     fetchExam();
+    // eslint-disable-next-line
   }, [examId]);
 
+  // 保存进度
   useEffect(() => {
-    if (questions.length === 0) return;
-    setStartTime(Date.now());
+    if (!initializedRef.current) return;
+    const saveState = {
+      examId,
+      answers,
+      current,
+      timeLeft,
+      startTime,
+    };
+    localStorage.setItem(`mockExamState_${examId}`, JSON.stringify(saveState));
+  }, [answers, current, timeLeft, startTime, examId]);
 
+  // 计时器
+  useEffect(() => {
+    if (loading || timeLeft <= 0) return;
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) {
@@ -74,9 +109,8 @@ function MockExamPage() {
         return prev - 1;
       });
     }, 1000);
-
     return () => clearInterval(timer);
-  }, [questions]);
+  }, [timeLeft, loading]);
 
   const handleAnswer = (index) => {
     const newAnswers = [...answers];
@@ -135,6 +169,7 @@ function MockExamPage() {
       title: examTitle,
     }
   });
+  localStorage.removeItem(`mockExamState_${examId}`);
 };
 
 
@@ -152,7 +187,8 @@ function MockExamPage() {
     <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'Arial, sans-serif' }}>
       <div style={{ width: 100, borderRight: '1px solid #ccc', padding: 10, background: '#f9f9f9' }}>
         {questions.map((q, idx) => {
-          const answered = answers[idx] !== null;
+          // 只有 answers 有内容时才判断
+          const answered = Array.isArray(answers) && answers[idx] !== null && answers[idx] !== undefined;
           const isCurrent = idx === current;
           return (
             <div
@@ -164,7 +200,11 @@ function MockExamPage() {
                 padding: '6px 10px',
                 borderRadius: 4,
                 fontWeight: isCurrent ? 'bold' : 'normal',
-                backgroundColor: isCurrent ? '#d0eaff' : answered ? '#e0f5e9' : 'transparent',
+                backgroundColor: isCurrent
+                  ? '#d0eaff'
+                  : answered
+                  ? '#e0f5e9'
+                  : 'transparent',
                 color: answered ? '#4caf50' : '#888',
                 border: isCurrent ? '1px solid #3399ff' : '1px solid transparent',
                 textAlign: 'center',
