@@ -45,7 +45,7 @@ mongoose.connect(process.env.MONGO_URI)
       title: '2023 S2 Mock Exam',
       source: 'eng_2023_s2',
       questions: inserted.map(q => q._id),
-      timeLimit: 1800 // 可根据需要调整
+      timeLimit: 3600 // 1小时
     });
     await mockExam.save();
     console.log('✅ 新的 MockExam 已创建，ID:', mockExam._id.toString());

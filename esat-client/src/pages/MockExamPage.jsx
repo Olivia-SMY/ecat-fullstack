@@ -172,6 +172,26 @@ function MockExamPage() {
   localStorage.removeItem(`mockExamState_${examId}`);
 };
 
+useEffect(() => {
+  const interval = setInterval(() => {
+    if (userId && examId) {
+      fetch(`${API_BASE}/api/mock-exam-status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_id: userId,
+          exam_id: examId,
+          current,
+          answers,
+          timeLeft,
+          lastActive: Date.now(),
+        }),
+      });
+    }
+  }, 30000); // 每30秒上报一次
+  return () => clearInterval(interval);
+}, [userId, examId, current, answers, timeLeft]);
+
 
   const question = questions[current];
 

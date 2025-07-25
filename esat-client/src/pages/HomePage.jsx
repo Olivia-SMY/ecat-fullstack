@@ -34,6 +34,8 @@ const HomePage = () => {
     navigate('/');
   };
 
+  const adminEmails = ['3075087825@qq.com', 'yifeng.chenox@gmail.com'];
+
   return (
     <div style={{ padding: 40, fontFamily: 'Arial, sans-serif' }}>
       <h1 style={{ fontSize: '2rem' }}>😸 欢迎来到 <span style={{ color: '#2f80ed' }}>ECat 刷题网站</span> 🚀💯</h1>
@@ -88,6 +90,12 @@ const HomePage = () => {
   <button onClick={() => navigate('/json-preview')}>
     👀 题库预览工具
   </button>
+
+  {user && adminEmails.includes(user.email) && (
+    <button onClick={() => navigate('/monitor')}>
+      🙈 进入监考页面
+    </button>
+  )}
 
   <button onClick={handleLogout}>
     🚪 退出登录

@@ -19,6 +19,7 @@ import MockListPage from './pages/MockListPage';
 import MockYearPage from './pages/MockYearPage';
 import 'antd/dist/reset.css'; 
 import { supabase } from './utils/supabase';
+import MonitorPage from './pages/MonitorPage';
 
 function App() {
   useEffect(() => {
@@ -87,6 +88,7 @@ function App() {
       <Route path="/mock-exams/:examId" element={<MockExamPage />} />
       <Route path="/mock-exams" element={<MockListPage />} />
       <Route path="/mock-year/:year" element={<MockYearPage />} />
+      <Route path="/monitor" element={<MonitorPage />} />
     </Routes>
   );
 }

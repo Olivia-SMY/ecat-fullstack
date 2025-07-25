@@ -39,9 +39,11 @@ mongoose.connect(process.env.MONGO_URI, {
 const questionRoutes = require('./routes/questions');
 const recordRoutes = require('./routes/records');
 const mockExamsRoutes = require('./routes/mockExams');
+const mockExamStatusRoutes = require('./routes/mockExamStatus');
 
 app.use('/api/questions', questionRoutes);
 app.use('/api/records', recordRoutes);
 app.use('/api/mock-exams', mockExamsRoutes);
+app.use('/api/mock-exam-status', mockExamStatusRoutes);
 
 
