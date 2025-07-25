@@ -1,0 +1,530 @@
+[
+  {
+    "question": "When $x=2$ is substituted in the expression $x^{3}+p x^{2}+q x+p^{2}$ the result is 0 . When $x=1$ is substituted into the same expression, the result is -3.5 . Find all possible value(s) of $p$.",
+    "options": [
+      "$p=-1 \\pm \\frac{\\sqrt{6}}{3}$",
+      "$p=1$ or $p=-3$",
+      "$p=1$",
+      "$p=1 \\pm \\sqrt{7}$",
+      "there are no values for $p$"
+    ],
+    "answerIndex": 2,
+    "images": [
+      
+    ],
+    "tags": [
+      "maths",
+      "algebra"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A parachutist is falling at terminal speed with his parachute open. The diagrams show, separately, the vertical forces acting on the parachute and the vertical forces acting on the parachutist.\n\nThe letters $L, M, N, P, Q$ and $R$ represent the magnitude of each force as indicated.\n\nConsider the following equations:\n1. $L=M+N$\n2. $R=P+Q$\n3. $L=Q$\n4. $N=P$\n5. $M+R=L+Q$\n\nWhich of these equations, if any, is/are the direct result of the application of Newton's Third Law to this situation?",
+    "options": [
+      "none of them",
+      "3 only",
+      "4 only",
+      "5 only",
+      "1 and 2 only",
+      "3 and 4 only",
+      "1, 2 and 5 only",
+      "1, 2, 3, 4 and 5"
+    ],
+    "answerIndex": 2,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q30.png"
+    ],
+    "tags": [
+      "physics",
+      "forces"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A square PQRS is drawn above the $x$-axis with the side PQ on the $x$-axis.\n$P$ is the point $(-5,0)$ and $Q$ is the point $(1,0)$.\nA circle is drawn inside the square with diameter equal in length to the side of the square.\nWhich one of the following is an equation of the circle?",
+    "options": [
+      "$x^{2}+y^{2}-4 x+6 y+4=0$",
+      "$x^{2}+y^{2}-4 x+6 y+9=0$",
+      "$x^{2}+y^{2}+4 x-6 y+4=0$",
+      "$x^{2}+y^{2}+4 x-6 y+9=0$",
+      "$x^{2}+y^{2}-6 x-4 y+9=0$",
+      "$x^{2}+y^{2}-6 x+4 y+4=0$",
+      "$x^{2}+y^{2}+6 x-4 y+4=0$",
+      "$x^{2}+y^{2}+6 x+4 y+9=0$"
+    ],
+    "answerIndex": 2,
+    "images": [],
+    "tags": [
+      "maths",
+      "geometry"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A crate has a total mass of 800 kg , including its contents. A helicopter of mass 4200 kg is carrying the crate using a light inextensible rope as shown:\n\nThe helicopter and crate are accelerating upwards at $2.0 \\mathrm{~ms}^{-2}$.\nWhat is the tension in the rope?\n(The gravitational field strength $g$ is $10 \\mathrm{Nkg}^{-1}$; air resistance can be ignored.)",
+    "options": [
+      "6400 N",
+      "8000 N",
+      "9600 N",
+      "18000 N",
+      "40000 N",
+      "42000 N",
+      "50000 N",
+      "60000 N"
+    ],
+    "answerIndex": 2,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q32.png"
+    ],
+    "tags": [
+      "physics",
+      "dynamics"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "The first term of a convergent geometric series is 8. The fifth term is 2. The sixth term is real and positive. What is the sum to infinity of this series? (The sum to infinity of a convergent geometric series is given by $\\frac{a}{1-r}$, where $a$ is the first term and $r$ is the common ratio.)",
+    "options": [
+      "$8(1+\\sqrt{2})$",
+      "$8(1-\\sqrt{2})$",
+      "$8(2+\\sqrt{2})$",
+      "$8(2-\\sqrt{2})$",
+      "16",
+      "$\\frac{8 \\sqrt[5]{4}}{\\sqrt[5]{4}-1}$",
+      "$\\frac{8 \\sqrt[5]{4}}{\\sqrt[5]{4}+1}$"
+    ],
+    "answerIndex": 2,
+    "images": [
+      
+    ],
+    "tags": [
+      "maths",
+      "series"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A shopper pushes a supermarket trolley a distance of 15 m in a straight line across a level, horizontal surface. The shopper applies a constant force of 50 N at an angle of $37^{\\circ}$ below the horizontal. The total weight of the trolley and its contents is 350 N.\n\nWhat is the magnitude of the total vertical force that the surface exerts on the trolley and how much work is done by the pushing force? (You may use the approximations $\\sin 37^{\\circ}=0.60 ; \\cos 37^{\\circ}=0.80$)",
+    "options": [
+      "380 N, 600 J",
+      "380 N, 750 J",
+      "390 N, 450 J",
+      "390 N, 750 J",
+      "400 N, 450 J",
+      "400 N, 600 J"
+    ],
+    "answerIndex": 0,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q34.png"
+    ],
+    "tags": [
+      "physics",
+      "work and forces"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "Tangents are drawn from a point $P$ to a circle of radius 10 cm. The centre of the circle is C and the distance PC is 20 cm.\n\nWhich one of the following is an expression for the shaded area in square centimetres?",
+    "options": [
+      "$\\frac{100}{3}(3 \\sqrt{3}-\\pi)$",
+      "$\\frac{100}{3}(3 \\sqrt{5}-\\pi)$",
+      "$\\frac{50}{3}(6 \\sqrt{3}-\\pi)$",
+      "$\\frac{50}{3}(6 \\sqrt{5}-\\pi)$",
+      "$\\frac{50}{3}(\\sqrt{3}-2 \\pi)$",
+      "$\\frac{50}{3}(2 \\pi-\\sqrt{3})$"
+    ],
+    "answerIndex": 0,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q35.png"
+    ],
+    "tags": [
+      "maths",
+      "geometry"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A plank of non-uniform density which has a mass of 15 kg is used to make a see-saw. A pivot is placed under the centre of the plank as shown on the diagram.\n\nA boy of mass 35 kg sits at one end of the plank with his centre of gravity 1.20 m from the pivot. The see-saw balances when a woman of mass 60 kg sits on the plank on the other side of the pivot. Her centre of gravity is 0.80 m from the pivot.\n\nWhere is the centre of gravity of the plank and what is the magnitude of the force exerted by the pivot on the plank?",
+    "options": [
+      "0.40 m on left of pivot, 100 N",
+      "0.40 m on left of pivot, 1100 N",
+      "at the pivot, 100 N",
+      "at the pivot, 1100 N",
+      "0.20 m on right of pivot, 100 N",
+      "0.20 m on right of pivot, 1100 N",
+      "0.40 m on right of pivot, 100 N",
+      "0.40 m on right of pivot, 1100 N"
+    ],
+    "answerIndex": 7,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q36.png"
+    ],
+    "tags": [
+      "physics",
+      "moments"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "Given that $7 \\cos \\theta-3 \\tan \\theta \\sin \\theta=1$, which one of the following is true?",
+    "options": [
+      "$\\cos \\theta=-\\frac{3}{5}$ or $-\\frac{1}{2}$",
+      "$\\cos \\theta=-\\frac{3}{5}$ or $-\\frac{1}{2}$",
+      "$\\cos \\theta=\\frac{3}{5}$ or $-\\frac{1}{2}$",
+      "$\\cos \\theta=\\frac{3}{5}$ or $-\\frac{1}{2}$"
+    ],
+    "answerIndex": 3,
+    "images": [],
+    "tags": [
+      "maths",
+      "trigonometry"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A car of mass 200 kg on a fairground ride travels at a speed of $5.0 \\mathrm{~m} \\mathrm{~s}^{-1}$ at point X . The car is allowed to move down a sloping section of track without any energy input. The heights above the ground of points $X$ and $Y$ are shown. When the car reaches point $Y$ its speed is $9.0 \\mathrm{~ms}^{-1}$.\n\nHow much energy is transferred in overcoming resistive forces as the car travels from X to Y ? (The gravitational field strength $g$ is $10 \\mathrm{Nkg}^{-1}$.)",
+    "options": [
+      "3900 J",
+      "6400 J",
+      "7900 J",
+      "10400 J",
+      "11200 J"
+    ],
+    "answerIndex": 1,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q38.png"
+    ],
+    "tags": [
+      "physics",
+      "energy"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "The complete set of values of $a$ for which the equation $3x^2=(a+2)x-3$ has two real distinct roots is",
+    "options": [
+      "no values of $a$",
+      "$-4\\sqrt{2}<a<4\\sqrt{2}$",
+      "$a<-4\\sqrt{2}, a>4\\sqrt{2}$",
+      "$-4<a<8$",
+      "$a<-4, a>8$",
+      "$-8<a<4$",
+      "$a<-8, a>4$",
+      "all values of $a$"
+    ],
+    "answerIndex": 6,
+    "images": [],
+    "tags": [
+      "maths",
+      "quadratics"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+  "question": "The diagram shows a uniform, solid, heavy cube with side $d$. The cube rests with one of its edges in contact with a table that is perfectly level. A horizontal force $P$ acts on another edge of the cube, and the cube is stationary.\n\nBelow are four statements about the forces on the cube:\n\n1. It is possible that there is no frictional force between the cube and the table.\n2. There must be a frictional force acting to the left between the cube and the table.\n3. There must be a frictional force acting to the right between the cube and the table.\n4. Force $P$ has a clockwise moment about the edge in contact with the table equal to $P \\times d$.\n\nWhich of the statements is/are correct?",
+  "options": [
+    "1 only",
+    "2 only",
+    "3 only",
+    "1 and 4 only",
+    "2 and 4 only",
+    "3 and 4 only"
+  ],
+  "answerIndex": 1,
+  "images": [
+    "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q40.png"
+  ],
+  "tags": [
+    "physics",
+    "forces"
+  ],
+  "difficulty": "medium",
+  "explanation": ""
+},
+  {
+    "question": "The straight line with equation $y=mx+3$, where $m>0$, $m\\neq1$, is perpendicular to the line $y=px+2$.\nThe lines cut the $x$-axis at points $L$ and $M$ respectively. The length of $LM$ is 5 units.\nWhat is the value of $m+p$ given that $m>1$?",
+    "options": [
+      "$-\\frac{8}{3}$",
+      "$-\\frac{13}{6}$",
+      "$-\\frac{5}{6}$",
+      "$\\frac{5}{6}$",
+      "$\\frac{13}{6}$",
+      "$\\frac{8}{3}$"
+    ],
+    "answerIndex": 3,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q41.png"
+    ],
+    "tags": [
+      "maths",
+      "coordinate geometry"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "Two identical blocks of mass $m$ are placed in two different arrangements.\nWhat is the difference in gravitational potential energy between arrangement 2 and 1?\n($g$ is gravitational field strength.)",
+    "options": [
+      "$2mg(a-b)$",
+      "$2mg(b-a)$",
+      "$-mg(b+a)$",
+      "$mg(a+b)$",
+      "$\\frac{3}{2}mg(a-b)$",
+      "$\\frac{1}{2}mg(a-b)$"
+    ],
+    "answerIndex": 0,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q42.png"
+    ],
+    "tags": [
+      "physics",
+      "potential energy"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "Let $f(x)=x^3 - a^2x$, where $a$ is a positive constant. Find all values of $x$ for which $f(x)$ is an increasing function.",
+    "options": [
+      "$x\\leq -a, x\\geq a$",
+      "$-a\\leq x\\leq a$",
+      "$x\\leq -a, 0\\leq x\\leq a$",
+      "$-a\\leq x\\leq 0, x\\geq a$",
+      "$x\\leq -\\frac{a}{3}, x\\geq \\frac{a}{3}$",
+      "$-\\frac{a}{3}\\leq x\\leq \\frac{a}{3}$",
+      "$x\\leq -\\frac{a}{\\sqrt{3}}, x\\geq \\frac{a}{\\sqrt{3}}$",
+      "$-\\frac{a}{\\sqrt{3}}\\leq x\\leq \\frac{a}{\\sqrt{3}}$"
+    ],
+    "answerIndex": 6,
+    "images": [],
+    "tags": [
+      "maths",
+      "calculus"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "An object is fired vertically upwards from the ground with speed $8.0\\,\\mathrm{ms}^{-1}$. What is its height when its speed is $2.0\\,\\mathrm{ms}^{-1}$ and what is the time when it reaches this height on the way down?\n(Use $g=10\\,\\mathrm{Nkg}^{-1}$)",
+    "options": [
+      "2.4 m, 0.60 s",
+      "2.4 m, 0.64 s",
+      "2.4 m, 1.0 s",
+      "2.4 m, 2.0 s",
+      "3.0 m, 0.60 s",
+      "3.0 m, 0.64 s",
+      "3.0 m, 1.0 s",
+      "3.0 m, 2.0 s"
+    ],
+    "answerIndex": 6,
+    "images": [],
+    "tags": [
+      "physics",
+      "kinematics"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "The curve $y=x^2$ is translated by vector $\\binom{4}{3}$ then reflected in the line $y=-1$. Which is the resulting equation?",
+    "options": [
+      "$y=-3-(x-4)^2$",
+      "$y=-3+(x+4)^2$",
+      "$y=3-(x+4)^2$",
+      "$y=3+(x-4)^2$",
+      "$y=-5-(x-4)^2$",
+      "$y=-5+(x+4)^2$",
+      "$y=5-(x+4)^2$",
+      "$y=5+(x-4)^2$"
+    ],
+    "answerIndex": 4,
+    "images": [],
+    "tags": [
+      "maths",
+      "transformations"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+ {
+  "question": "The diagram shows a ball $P$, of mass $4.0\\,\\mathrm{kg}$, moving to the right at $10\\,\\mathrm{m\\,s}^{-1}$ directly towards a stationary ball $Q$, of mass $2.0\\,\\mathrm{kg}$.\n\nThe balls collide but do not join together. Immediately after the collision, ball $Q$ moves at $10\\,\\mathrm{m\\,s}^{-1}$ to the right.\n\nWhat is the velocity of ball $P$ immediately after the collision, and how much kinetic energy in total is lost during the collision?",
+  "options": [
+    "$0$, $50\\,\\mathrm{J}$",
+    "$0$, $150\\,\\mathrm{J}$",
+    "$10\\,\\mathrm{m\\,s}^{-1}$ to the left, $50\\,\\mathrm{J}$",
+    "$10\\,\\mathrm{m\\,s}^{-1}$ to the left, $150\\,\\mathrm{J}$",
+    "$5.0\\,\\mathrm{m\\,s}^{-1}$ to the right, $50\\,\\mathrm{J}$",
+    "$5.0\\,\\mathrm{m\\,s}^{-1}$ to the right, $150\\,\\mathrm{J}$"
+  ],
+  "answerIndex": 4,
+  "images": [
+    "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q46.png"
+  ],
+  "tags": ["physics", "collisions"],
+  "difficulty": "medium",
+  "explanation": ""
+},
+  {
+    "question": "Find all values of $x$ for which $2x^4 - 9x^2 + 4 > 0$.",
+    "options": [
+      "$x<\\frac{1}{2}, x>4$",
+      "$\\frac{1}{2}<x<4$",
+      "$x<-2, -\\frac{1}{\\sqrt{2}}<x<\\frac{1}{\\sqrt{2}}, x>2$",
+      "$-2<x<\\frac{-1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}}<x<2$",
+      "$-2<x<2$"
+    ],
+    "answerIndex": 2,
+    "images": [],
+    "tags": [
+      "maths",
+      "inequalities"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A point object of mass 2.0 kg is at rest on a level, horizontal surface. The coefficient of friction between the object and the surface is 0.25.\n\nTwo horizontal forces at right-angles to each other, with magnitudes 9.0 N and 12.0 N, are applied simultaneously to the object.\n\nWhat is the magnitude of the acceleration of the object as it begins to move?\n(The gravitational field strength $g$ is $10 \\mathrm{~N} \\mathrm{~kg}^{-1}$.)",
+    "options": [
+      "$5.0\\,\\mathrm{ms}^{-2}$",
+      "$7.25\\,\\mathrm{ms}^{-2}$",
+      "$7.5\\,\\mathrm{ms}^{-2}$",
+      "$8.0\\,\\mathrm{ms}^{-2}$",
+      "$10\\,\\mathrm{ms}^{-2}$",
+      "$10.5\\,\\mathrm{ms}^{-2}$"
+    ],
+    "answerIndex": 1,
+    "images": [],
+    "tags": [
+      "physics",
+      "forces"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A cursor starts at the point $(0,10)$ and moves parallel to the $x$-axis in the negative direction.\nWhat is the minimum distance parallel to the $y$-axis between the cursor and the graph of $y=4 x^{3}-12 x^{2}-36 x-15$?",
+    "options": [
+      "$0$",
+      "$5$",
+      "$25$",
+      "$69$",
+      "$133$"
+    ],
+    "answerIndex": 2,
+    "images": [],
+    "tags": [
+      "maths",
+      "graphs"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "An object of mass 20 kg is pulled up a rough plane inclined at $30^{\\circ}$ to the horizontal by a light, inextensible cable attached via a frictionless pulley to a freely-falling 30 kg mass. The acceleration of the object along the plane is $2.5 \\mathrm{~m} \\mathrm{~s}^{-2}$.\n\nWhat is the frictional force between the object and the plane?\n(Air resistance and the mass of the pulley can be ignored. The gravitational field strength $g$ is $10\\,\\mathrm{Nkg}^{-1}$.)",
+    "options": [
+      "$25\\,\\mathrm{N}$",
+      "$50\\,\\mathrm{N}$",
+      "$75\\,\\mathrm{N}$",
+      "$100\\,\\mathrm{N}$",
+      "$150\\,\\mathrm{N}$",
+      "$175\\,\\mathrm{N}$",
+      "$250\\,\\mathrm{N}$"
+    ],
+    "answerIndex": 2,
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q50.png"
+    ],
+    "tags": [
+      "physics",
+      "forces",
+      "mechanics"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "What is the area enclosed by the line $x=7$ and the curve $x=3(y-1)^{2}+4$?",
+    "options": [
+      "$4$",
+      "$8$",
+      "$10$",
+      "$11$",
+      "$14$",
+      "$20$"
+    ],
+    "answerIndex": 1,
+    "images": [],
+    "tags": [
+      "maths",
+      "area under curve"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A spacecraft of initial total mass 4000 kg is travelling relative to the Earth at a constant speed of $7425\\,\\mathrm{ms}^{-1}$.\n\nIt ejects some fuel backwards in a sudden burst at a speed relative to the spacecraft of $1425\\,\\mathrm{ms}^{-1}$. As a result of this, the speed of the spacecraft immediately after the fuel is ejected increases to $7500\\,\\mathrm{ms}^{-1}$.\n\nWhat is the mass of fuel ejected?",
+    "options": [
+      "$22\\,\\mathrm{kg}$",
+      "$34\\,\\mathrm{kg}$",
+      "$40\\,\\mathrm{kg}$",
+      "$50\\,\\mathrm{kg}$",
+      "$200\\,\\mathrm{kg}$",
+      "$210\\,\\mathrm{kg}$"
+    ],
+    "answerIndex": 4,
+    "images": [],
+    "tags": [
+      "physics",
+      "momentum",
+      "rockets"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+    "question": "A curve has equation $y=3x^{4}-4x^{3}-12x^{2}+20$.\n\nWhat is the complete set of values of the constant $k$ for which the equation\n$$\n3x^{4}-4x^{3}-12x^{2}+20=k\n$$\nhas exactly four distinct real roots?",
+    "options": [
+      "no values of $k$",
+      "$-12<k<15$",
+      "$15<k<20$",
+      "$k>20$",
+      "$7<k<20$",
+      "all values of $k$"
+    ],
+    "answerIndex": 2,
+    "images": [],
+    "tags": [
+      "maths",
+      "polynomials"
+    ],
+    "difficulty": "medium",
+    "explanation": ""
+  },
+  {
+  "question": "An object of weight 40 N hangs from the end of a light inextensible string of length 0.35 m, which is attached to the ceiling. A constant horizontal force of 30 N is applied to the object, causing it to move to a new equilibrium position with the string no longer vertical.\n\nBy how much has the gravitational potential energy of the object increased as a result of its change of position?",
+  "options": [
+    "$2.1\\,\\mathrm{J}$",
+    "$2.8\\,\\mathrm{J}$",
+    "$3.5\\,\\mathrm{J}$",
+    "$4.2\\,\\mathrm{J}$",
+    "$4.9\\,\\mathrm{J}$",
+    "$5.6\\,\\mathrm{J}$"
+  ],
+  "answerIndex": 2,
+  "images": [],
+  "tags": ["physics", "energy"],
+  "difficulty": "medium",
+  "explanation": ""
+}
+]
