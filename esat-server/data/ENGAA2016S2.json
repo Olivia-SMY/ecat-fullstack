@@ -258,7 +258,7 @@
       "$\\frac{V}{g} \\tan \\theta$",
       "$2 \\frac{V}{g} \\sin \\theta$"
     ],
-    "answerIndex": 3,
+    "answerIndex": 1,
     "images": [
       "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/eng_2016_2Q4.png"
     ],
@@ -280,7 +280,7 @@
       "$2 \\frac{V^{2}}{g} \\frac{\\cos \\theta}{\\sin ^{2} \\theta}$",
       "$2 \\frac{V^{2}}{g}\\left[\\sin \\theta+\\tan ^{2} \\theta\\right]$"
     ],
-    "answerIndex": 1,
+    "answerIndex": 2,
     "images": [
       "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/eng_2016_2Q4.png"
     ],
