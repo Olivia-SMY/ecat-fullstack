@@ -28,11 +28,11 @@ function formatDuration(ms) {
 
 function MockResultPage() {
   const { state } = useLocation();
-  const { questions = [], answers = [], elapsedTime = null, title = '模拟考试结果' } = state || {};
+  const { questions = [], answers = [], elapsedTime = null, title = '模拟考试结果', examSource = '' } = state || {};
 
   const score = answers.reduce((acc, ans, idx) =>
     ans === questions[idx]?.answerIndex ? acc + 1 : acc, 0);
-  const scaled = getScaledScore(score) ?? 'N/A';
+  const scaled = getScaledScore(score, examSource) ?? 'N/A';
 
   return (
     <div style={{ padding: 30, fontFamily: 'Arial, sans-serif', maxWidth: 800, margin: '0 auto' }}>
@@ -41,7 +41,9 @@ function MockResultPage() {
 
       <h3>答题结果</h3>
       <div style={{ marginBottom: 15 }}>✅ 得分: {score} / {questions.length}</div>
-      <div style={{ marginBottom: 15 }}>📊 标准分: {scaled}</div>
+      {examSource !== 'eng_2016_s2' && (
+        <div style={{ marginBottom: 15 }}>📊 标准分: {scaled}</div>
+      )}
       <div style={{ marginBottom: 15 }}>⏱ 答题用时: {elapsedTime ? formatDuration(elapsedTime) : '—'}</div>
 
       <ul style={{ padding: 0, listStyle: 'none' }}>

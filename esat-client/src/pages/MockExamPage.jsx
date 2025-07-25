@@ -45,6 +45,7 @@ function MockExamPage() {
   const [loading, setLoading] = useState(true);
   const [examTitle, setExamTitle] = useState('');
   const [userId, setUserId] = useState(null);
+  const [examSource, setExamSource] = useState(''); // 新增
 
   // 用于防止多次初始化
   const initializedRef = useRef(false);
@@ -56,6 +57,7 @@ function MockExamPage() {
         setQuestions(res.data.questions);
         setExamTitle(res.data.title || '');
         setExamTimeLimit(res.data.timeLimit || 1800);
+        setExamSource(res.data.source || ''); // 新增
 
         // 恢复 localStorage
         const saved = localStorage.getItem(`mockExamState_${examId}`);
@@ -151,7 +153,7 @@ function MockExamPage() {
   }
 
   const score = answers.filter((a, i) => a === questions[i]?.answerIndex).length;
-  const scaled = getScaledScore(score); // ✅ 计算标准分
+  const scaled = getScaledScore(score, examSource); // 传入 examSource
 
   // ✅ 插入 Supabase 并附带 scaled_score 字段
   const { error } = await supabase.from('mock_exam_results').insert({
