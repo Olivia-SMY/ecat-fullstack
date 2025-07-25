@@ -1,0 +1,312 @@
+[
+  {
+    "id": 1,
+    "question": "A block of weight $W$ slides down a rough plane at a constant speed. The plane is at an angle of $30^{\\circ}$ to the horizontal.\nThe block is now pulled by a force of $3W$ acting parallel to and up the plane. The block has constant acceleration.\n\nWhich expression gives the acceleration of the block?\n(gravitational field strength $= g$)",
+    "options": [
+      "$2g$",
+      "$\\frac{5}{2}g$",
+      "$3g$",
+      "$(3 - \\sqrt{3})g$",
+      "$\\left(3 - \\frac{1}{\\sqrt{3}}\\right)g$",
+      "$\\left(3 - \\frac{\\sqrt{3}}{2}\\right)g$",
+      "$\\left(3 - \\frac{2}{\\sqrt{3}}\\right)g$"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 2,
+    "question": "The speed $v$ of an object moving in a straight line is related to time $t$ by the equation\n\n$$v = kt^2$$\n\nwhere $k$ is a constant.\nAt $t = 10\\ \\mathrm{s}$ the speed of the object is $48\\ \\mathrm{m\\,s^{-1}}$ and the resultant force on the object is $24\\ \\mathrm{N}$.\nWhat is the mass of the object?",
+    "options": [
+      "$0.15\\ \\mathrm{kg}$",
+      "$0.40\\ \\mathrm{kg}$",
+      "$1.2\\ \\mathrm{kg}$",
+      "$2.5\\ \\mathrm{kg}$",
+      "$6.7\\ \\mathrm{kg}$"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": 3,
+    "question": "Two waves $P$ and $Q$, which superpose, are shown in the diagram in a particular region at time $t = 0$.\n\nBoth waves have period $T$ and are moving in the directions shown by the arrows. Wave $P$ has amplitude $2.0\\ \\mathrm{cm}$ and wave $Q$ has amplitude $1.0\\ \\mathrm{cm}$.\n\nWhich diagram represents the resultant wave formed in the same region by waves $P$ and $Q$ at time $t = \\frac{T}{2}$?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q3a.jpg",
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q3b.png"
+    ],
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+    ],
+    "answerIndex": 5
+  },
+  {
+    "id": 4,
+    "question": "Four identical springs are arranged as shown and suspended from a support.\n\nThe mass of the springs, rod and hook are negligible.\nA load of weight $8.4\\ \\mathrm{N}$ is attached to the hook at the lower end of the springs and this causes a total extension of the system of $24\\ \\mathrm{mm}$.\n\nThe arrangement is then changed to:\n\nThe load of $8.4\\ \\mathrm{N}$ is attached to the bottom of the lower spring.\n\nWhat is the total extension of the system at equilibrium in the second arrangement?\n(The springs obey Hooke's law.)",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q4a.png",
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q4b.png"
+    ],
+    "options": [
+      "3 mm",
+      "12 mm",
+      "16 mm",
+      "24 mm",
+      "32 mm",
+      "48 mm",
+      "64 mm"
+    ],
+    "answerIndex": 4
+  },
+  {
+    "id": 5,
+    "question": "A student and a child are standing on trolleys $X$ and $Y$, respectively, which are close to each other but not touching. The trolleys are initially stationary on a straight, horizontal frictionless track. The student is initially holding a ball of mass $5.0\\ \\mathrm{kg}$.\n\nThe total mass of the student, the ball and trolley $X$ is $80\\ \\mathrm{kg}$.\nThe total mass of the child and trolley $Y$ is $20\\ \\mathrm{kg}$.\nThe student on trolley $X$ throws the ball to the child on trolley $Y$. The ball travels at a horizontal speed of $12\\ \\mathrm{m\\,s^{-1}}$ relative to the ground. The child then catches the ball.\n\nWhat is the speed of separation of the trolleys after the child has caught the ball?\n(Assume that air resistance is negligible.)",
+    "options": [
+      "$1.6\\ \\mathrm{m\\,s^{-1}}$",
+      "$2.4\\ \\mathrm{m\\,s^{-1}}$",
+      "$3.2\\ \\mathrm{m\\,s^{-1}}$",
+      "$3.8\\ \\mathrm{m\\,s^{-1}}$",
+      "$24\\ \\mathrm{m\\,s^{-1}}$"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 6,
+    "question": "The variation of the acceleration with time of an object moving in a straight line is shown on the graph.\n\nAt time $=0\\ \\mathrm{s}$ the velocity of the object is $8.0\\ \\mathrm{ms^{-1}}$.\nWhat is the maximum velocity of the object between time $=0\\ \\mathrm{s}$ and time $=6\\ \\mathrm{s}$?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q6.jpg"
+    ],
+    "options": [
+      "$5.0\\ \\mathrm{ms^{-1}}$",
+      "$8.0\\ \\mathrm{ms^{-1}}$",
+      "$12\\ \\mathrm{ms^{-1}}$",
+      "$20\\ \\mathrm{ms^{-1}}$",
+      "$32\\ \\mathrm{ms^{-1}}$",
+      "$44\\ \\mathrm{ms^{-1}}$"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": 7,
+    "question": "The diagram shows a circuit that includes a battery with an emf of 18 V and internal resistance $r$.\n\nThe three identical resistors in the external circuit each have resistance $R$.\nThe terminal potential difference across the battery is 16 V.\nWhich expression gives $R$ in terms of $r$?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q7.jpg"
+    ],
+    "options": [
+      "$R = \\frac{10r}{3}$",
+      "$R = \\frac{16r}{3}$",
+      "$R = 6r$",
+      "$R = 12r$",
+      "$R = \\frac{27r}{2}$",
+      "$R = 24r$",
+      "$R = \\frac{51r}{2}$"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": 8,
+    "question": "Three identical bar magnets, each of mass $m$, and two identical trolleys, $X$ and $Y$, also each of mass $m$, are arranged with the bar magnets fixed to the trolleys as shown. The trolleys are held at rest a short distance apart on a smooth horizontal track.\n\nThe trolleys are released at the same time. They move towards each other and collide.\nFind the value of the ratio of kinetic energy of $X$ to kinetic energy of $Y$ immediately before collision.",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q8.jpg"
+    ],
+    "options": [
+      "$\\frac{4}{9}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{3}$",
+      "$1$",
+      "$\\frac{3}{2}$",
+      "$2$",
+      "$\\frac{9}{4}$"
+    ],
+    "answerIndex": 4
+  },
+  {
+    "id": 9,
+    "question": "A uniform rod $XY$ of length $3.0\\ \\mathrm{m}$ has a weight of $20\\ \\mathrm{N}$. The rod is supported by two light wires, $P$ and $Q$, as shown. $P$ and $Q$ are attached $0.50\\ \\mathrm{m}$ from ends $X$ and $Y$, respectively.\n\nA $40\\ \\mathrm{N}$ load is moved from end $X$ to end $Y$. The rod remains horizontal at all times.\nWhich graph shows the variation of the tension $T$ in wire $P$ with the position of the load as it is moved along the rod?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q9a.jpg",
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q9b.png"
+    ],
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+    ],
+    "answerIndex": 5
+  },
+  {
+    "id": 10,
+    "question": "A pipe of length $L$ open at both ends contains a stationary sound wave with 1 node, as shown in the diagram.\n\nThe frequency of the stationary wave in this pipe is $4f$.\nA second pipe is open at one end and closed at the other end. A stationary sound wave in this pipe contains one more node than the stationary wave shown in the diagram.\n\nThe frequency of the stationary wave in the second pipe is $f$.\nThe speed of sound is the same in both pipes.\nWhat is the length of the second pipe?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q10.jpg"
+    ],
+    "options": [
+      "$4L$",
+      "$6L$",
+      "$8L$",
+      "$10L$",
+      "$12L$"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 11,
+    "question": "The resistors in the following four circuits are identical. Each cell can supply the same total amount of energy at a constant voltage before becoming exhausted.\n$t_1, t_2, t_3$ and $t_4$ are the lengths of time after which the cells in circuits 1, 2, 3 and 4 become exhausted.\n\nWhich comparison of $t_1, t_2, t_3$ and $t_4$ is correct?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q11.png"
+    ],
+    "options": [
+      "$t_1 = t_2 < t_3 = t_4$",
+      "$t_1 = t_3 < t_2 = t_4$",
+      "$t_2 < t_1 = t_4 < t_3$",
+      "$t_2 = t_4 < t_1 = t_3$",
+      "$t_3 < t_1 = t_4 < t_2$",
+      "$t_3 = t_4 < t_1 = t_2$"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 12,
+    "question": "A particle of mass $m$ is accelerated from rest by a resultant force of varying magnitude that acts in a constant direction. The kinetic energy $E$ of the particle increases with time $t$ according to the equation:\n\n$$E = kt$$\n\nwhere $k$ is a constant.\nWhich expression gives the resultant force on the particle at time $T$?",
+    "options": [
+      "$k$",
+      "$2mk$",
+      "$\\sqrt{2mkT}$",
+      "$\\sqrt{\\frac{mk}{2T}}$",
+      "$\\sqrt{\\frac{mk}{8T}}$",
+      "$\\sqrt{\\frac{2mk}{T}}$",
+      "$\\sqrt{\\frac{k}{2mT}}$"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": 13,
+    "question": "A light horizontal wire of cross-sectional area $A$ is fixed at two points a distance $2L$ apart. The initial tension in the wire is zero.\n\nAn object of weight $W$ is fixed directly to the centre of the wire. The wire stretches so that the object rests in equilibrium at a vertical distance of $\\frac{3L}{4}$ below the original position of the wire.\n\nWhat is the Young modulus of the wire?\n(Assume that the wire does not exceed its limit of proportionality.)",
+    "options": [
+      "$\\frac{2W}{A}$",
+      "$\\frac{4W}{A}$",
+      "$\\frac{5W}{2A}$",
+      "$\\frac{2W}{3A}$",
+      "$\\frac{10W}{3A}$",
+      "$\\frac{20W}{3A}$",
+      "$\\frac{5W}{6A}$"
+    ],
+    "answerIndex": 4
+  },
+  {
+    "id": 14,
+    "question": "A triangular ramp with angles to the horizontal of $60^{\\circ}$ and $30^{\\circ}$ is placed with its largest face horizontal. A block of mass $1.5\\ \\mathrm{kg}$ and a block of mass $m$ are joined by a light, inextensible string and placed on the ramp as shown.\n\nThe string passes over a light, frictionless pulley.\nThe maximum force of friction between the block of mass $1.5\\ \\mathrm{kg}$ and the surface of the ramp is $3.5\\ \\mathrm{N}$.\nThe maximum force of friction between the block of mass $m$ and the surface of the ramp is $5.0\\ \\mathrm{N}$.\n\nWhat is the maximum value of $m$ that allows the blocks to remain stationary on the surfaces? (gravitational field strength $= 10\\ \\mathrm{N\\,kg^{-1}}$)",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q14.jpg"
+    ],
+    "options": [
+      "$1.5\\ \\mathrm{kg}$",
+      "$1.65\\ \\mathrm{kg}$",
+      "$2.35\\ \\mathrm{kg}$",
+      "$\\left(\\frac{16 \\sqrt{3}}{15}\\right)\\ \\mathrm{kg}$",
+      "$(0.60 \\sqrt{3})\\ \\mathrm{kg}$",
+      "$(0.30 + 1.5 \\sqrt{3})\\ \\mathrm{kg}$",
+      "$(1.7 + 1.5 \\sqrt{3})\\ \\mathrm{kg}$"
+    ],
+    "answerIndex": 6
+  },
+  {
+    "id": 15,
+    "question": "A sound wave travels through medium $J$, reaches a boundary, and then travels through medium $K$ as shown. The thickness of each medium is $L$.\n\nThe wave travels a distance $q$ in medium $J$ and a distance $y$ in medium $K$.\nThe horizontal distance travelled in medium $J$ is $p$. The horizontal distance travelled in medium $K$ is $x$.\n\nThe wave travels at speed $v$ in medium $J$. The graph shows how the speed of the wave varies with time $t$ as it travels distances $q$ and $y$, and that the wave leaves medium $K$ at $t = 2.75\\ \\mathrm{ms}$.\n\nWhat is the value of $\\frac{x}{p}$?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q15a.jpg",
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q15b.jpg"
+    ],
+    "options": [
+      "$\\frac{3}{200}$",
+      "$\\frac{3}{40}$",
+      "$\\frac{8}{75}$",
+      "$\\frac{3}{8}$",
+      "$\\frac{8}{15}$",
+      "$\\frac{8}{3}$",
+      "$\\frac{200}{3}$"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 16,
+    "question": "The drag force $F$ acting on a sphere of radius $r$ falling at constant speed $v$ through air is given by\n$$F = krv$$\nwhere $k$ is a constant.\n\nFor a sphere of uniform density and mass $m$ falling at a constant speed, the drag force heats the surrounding air at a constant rate $P$.\n\nAnother sphere of the same material but with mass $8m$ falls through the air at a different constant speed.\n\nWhat is the rate at which the drag force on the heavier sphere heats the surrounding air?",
+    "options": [
+      "$2P$",
+      "$4P$",
+      "$8P$",
+      "$16P$",
+      "$32P$",
+      "$64P$"
+    ],
+    "answerIndex": 4
+  },
+  {
+    "id": 17,
+    "question": "A projectile is launched from an inclined plane.\nThe graphs show the variation of the horizontal and vertical components of the velocity of the projectile with time from when it is launched until it hits the plane at time $T$.\n\nWhat is the angle of the plane to the horizontal?\n(gravitational field strength $= 10\\ \\mathrm{N\\,kg^{-1}}$)",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q17a.jpg",
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q17b.jpg"
+    ],
+    "options": [
+      "$\\tan^{-1} \\frac{1}{32}$",
+      "$\\tan^{-1} \\frac{1}{8}$",
+      "$\\tan^{-1} \\frac{1}{4}$",
+      "$\\tan^{-1} \\frac{5}{16}$",
+      "$\\tan^{-1} \\frac{1}{3}$",
+      "$\\tan^{-1} \\frac{4}{3}$"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 18,
+    "question": "A tennis ball of mass $0.060\\ \\mathrm{kg}$ travels horizontally and strikes a vertical wall at $30\\ \\mathrm{m\\,s^{-1}}$. It leaves the wall in the opposite direction at $20\\ \\mathrm{m\\,s^{-1}}$.\n\nThe graph shows how the resultant horizontal force acting on the ball varies with time during this collision.\n\nWhat is the duration of the collision?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q18.jpg"
+    ],
+    "options": [
+      "$\\frac{1}{200}\\ \\mathrm{s}$",
+      "$\\frac{1}{150}\\ \\mathrm{s}$",
+      "$\\frac{1}{100}\\ \\mathrm{s}$",
+      "$\\frac{1}{40}\\ \\mathrm{s}$",
+      "$\\frac{1}{30}\\ \\mathrm{s}$",
+      "$\\frac{1}{20}\\ \\mathrm{s}$"
+    ],
+    "answerIndex": 4
+  },
+  {
+    "id": 19,
+    "question": "A battery with an emf of $8.0\\ \\mathrm{V}$ and internal resistance $R$ and another battery with an emf of $4.0\\ \\mathrm{V}$ and internal resistance $2.0\\ \\Omega$ are connected to a cell with an emf of $2.0\\ \\mathrm{V}$ and internal resistance $4.0\\ \\Omega$ in the circuit shown.\n\nThe current in the $2.0\\ \\mathrm{V}$ cell is $0.50\\ \\mathrm{A}$ in the direction shown in the diagram.\n\nWhat is the resistance $R$?",
+    "images": [
+      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/engaa2023/eng_2023_2Q19.jpg"
+    ],
+    "options": [
+      "$1.6\\ \\Omega$",
+      "$2.7\\ \\Omega$",
+      "$3.2\\ \\Omega$",
+      "$8.0\\ \\Omega$",
+      "$16\\ \\Omega$"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": 20,
+    "question": "A model for how the resistivity $\\rho$ of damp soil varies with depth $x$ from the surface is given by $\\rho$ of damp soil varies with depth $x$ from the surface is given by $$\\rho = \\rho_0\\left(1 - \\frac{kx^2}{h^2}\\right)$$ where $h$ is the maximum depth, and $k$ and $\\rho_0$ are other constants.\n\nWhat is the resistance of a vertical column of damp soil of cross-sectional area $A$ and depth $h$?",
+    "options": [
+      "$\\frac{\\rho_0 h}{A}$",
+      "$\\frac{\\rho_0 h}{A}(1 - k)$",
+      "$\\frac{\\rho_0 h}{2A}(2 - k)$",
+      "$\\frac{\\rho_0 h}{A}(1 - 3k)$",
+      "$\\frac{\\rho_0 h}{A}\\left(1 - \\frac{k}{3}\\right)$",
+      "$\\frac{\\rho_0}{A}\\left(1 - \\frac{k h}{3}\\right)$",
+      "$\\frac{\\rho_0 h^2}{A}\\left(\\frac{1}{2} - \\frac{k}{4}\\right)$"
+    ],
+    "answerIndex": 4
+  }
+]
