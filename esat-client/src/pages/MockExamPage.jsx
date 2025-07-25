@@ -1,5 +1,8 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import axios from 'axios';
@@ -181,6 +184,7 @@ function MockExamPage() {
 useEffect(() => {
   const interval = setInterval(() => {
     if (userId && examId) {
+      console.log('上报状态', { userId, examId, current, answers, timeLeft });
       fetch(`${API_BASE}/api/mock-exam-status`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -192,9 +196,11 @@ useEffect(() => {
           timeLeft,
           lastActive: Date.now(),
         }),
+      }).then(res => res.json()).then(data => {
+        console.log('上报响应', data);
       });
     }
-  }, 30000); // 每30秒上报一次
+  }, 30000);
   return () => clearInterval(interval);
 }, [userId, examId, current, answers, timeLeft]);
 
@@ -254,7 +260,11 @@ useEffect(() => {
               <strong>Q {current + 1}:</strong>
               <div style={{ marginTop: 8, fontSize: 18 }}>
                 {question.question ? (
-                  <LatexText text={question.question} />
+                  <ReactMarkdown
+                    children={question.question}
+                    remarkPlugins={[remarkMath]}
+                    rehypePlugins={[rehypeKatex]}
+                  />
                 ) : (
                   <span style={{ color: 'gray' }}>[题干为空]</span>
                 )}
@@ -264,7 +274,7 @@ useEffect(() => {
                   key={idx}
                   src={img}
                   alt={`图 ${idx + 1}`}
-                  style={{ maxWidth: '100%', margin: '10px 0', border: '1px solid #ddd', borderRadius: 4 }}
+                  style={{ maxWidth: '500px', height: 'auto', margin: '10px 0', border: '1px solid #ddd', borderRadius: 4 }}
                 />
               ))}
             </div>
@@ -277,7 +287,7 @@ useEffect(() => {
                     style={{
                       width: '100%',
                       padding: '10px 15px',
-                      fontSize: '16px',
+                      fontSize: '20px',
                       cursor: 'pointer',
                       backgroundColor: answers[current] === i ? '#d0eaff' : '#f0f0f0',
                       border: '2px solid',
@@ -286,7 +296,11 @@ useEffect(() => {
                       textAlign: 'left',
                     }}
                   >
-                    <LatexText text={opt} />
+                    <ReactMarkdown
+                      children={opt}
+                      remarkPlugins={[remarkMath]}
+                      rehypePlugins={[rehypeKatex]}
+                    />
                   </button>
                 </li>
               ))}

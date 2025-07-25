@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { supabase } from '../utils/supabase';
 import { useNavigate } from 'react-router-dom';
 
-// 管理员邮箱白名单
 const adminEmails = ['3075087825@qq.com', 'yifeng.chenox@gmail.com'];
 
 function formatTime(s) {
-  if (!s && s !== 0) return '—';
-  return `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, '0')}`;
+  if (typeof s !== 'number') return '—';
+  const min = Math.floor(s / 60);
+  const sec = (s % 60).toString().padStart(2, '0');
+  return `${min}:${sec}`;
 }
 
 export default function MonitorPage() {
@@ -16,38 +17,42 @@ export default function MonitorPage() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // 权限校验
+  // 权限校验 + 拉取 user
   useEffect(() => {
-    const fetchUser = async () => {
+    (async () => {
       const { data } = await supabase.auth.getUser();
-      setUser(data.user);
       if (!data.user || !adminEmails.includes(data.user.email)) {
         alert('无权限访问');
         navigate('/');
+      } else {
+        setUser(data.user);
       }
-    };
-    fetchUser();
+    })();
   }, [navigate]);
 
-  // 定时拉取所有用户状态
-  useEffect(() => {
-    if (!user || !adminEmails.includes(user.email)) return;
-    const fetchStatuses = async () => {
-      setLoading(true);
-      try {
-        // 这里用 query 参数传 email，后端会校验
-        const res = await fetch(`/api/mock-exam-status/all?email=${encodeURIComponent(user.email)}`);
-        const data = await res.json();
-        setStatuses(Array.isArray(data) ? data : []);
-      } catch (err) {
-        setStatuses([]);
-      }
+  // 拉取状态
+  const fetchStatuses = useCallback(async () => {
+    if (!user) return;
+    try {
+      const res = await fetch(`/api/mock-exam-status/all?email=${encodeURIComponent(user.email)}`);
+      const data = await res.json();
+      setStatuses(Array.isArray(data) ? data : []);
+    } catch (err) {
+      setStatuses([]);
+      console.error('Failed to fetch statuses:', err);
+    } finally {
       setLoading(false);
-    };
-    fetchStatuses();
-    const interval = setInterval(fetchStatuses, 10000); // 每10秒刷新
-    return () => clearInterval(interval);
+    }
   }, [user]);
+
+  // 定时刷新
+  useEffect(() => {
+    if (!user) return;
+    setLoading(true);
+    fetchStatuses();
+    const interval = setInterval(fetchStatuses, 10000);
+    return () => clearInterval(interval);
+  }, [user, fetchStatuses]);
 
   return (
     <div style={{ padding: 40 }}>
@@ -68,7 +73,7 @@ export default function MonitorPage() {
             </tr>
           </thead>
           <tbody>
-            {statuses.map((s, idx) => (
+            {statuses.map((s) => (
               <tr key={s.user_id + s.exam_id} style={{ borderBottom: '1px solid #eee' }}>
                 <td>{s.username || '—'}</td>
                 <td>{s.email || '—'}</td>
@@ -76,7 +81,7 @@ export default function MonitorPage() {
                 <td>{s.current != null ? `Q${s.current + 1}` : '—'}</td>
                 <td>
                   {Array.isArray(s.answers)
-                    ? s.answers.filter(a => a !== null && a !== undefined).length
+                    ? s.answers.filter(a => a != null).length
                     : '—'}
                 </td>
                 <td>{formatTime(s.time_left)}</td>
