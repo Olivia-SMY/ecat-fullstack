@@ -145,8 +145,8 @@ function MockExamPage() {
   const submitResult = async () => {
   const elapsedTime = Date.now() - startTime;
 
-  if (userError || !userId) {
-    console.error('❌ 获取用户信息失败:', userError);
+  if (!userId) {
+    console.error('❌ 获取用户信息失败: userId is null');
     return;
   }
 
