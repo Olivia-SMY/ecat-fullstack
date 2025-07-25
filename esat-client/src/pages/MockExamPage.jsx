@@ -36,7 +36,8 @@ function MockExamPage() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [current, setCurrent] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(1800);
+  const [timeLeft, setTimeLeft] = useState(1800); // 初始值无所谓，后面会覆盖
+  const [examTimeLimit, setExamTimeLimit] = useState(1800);
   const [startTime, setStartTime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [examTitle, setExamTitle] = useState('');
@@ -48,6 +49,8 @@ function MockExamPage() {
         setQuestions(res.data.questions);
         setAnswers(Array(res.data.questions.length).fill(null));
         setExamTitle(res.data.title || '');
+        setExamTimeLimit(res.data.timeLimit || 1800); // 新增
+        setTimeLeft(res.data.timeLimit || 1800);      // 新增
       } catch (err) {
         console.error('❌ 模考加载失败:', err);
       } finally {
