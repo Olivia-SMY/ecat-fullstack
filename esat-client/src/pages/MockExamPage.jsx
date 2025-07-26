@@ -175,6 +175,11 @@ function MockExamPage() {
   const score = answers.filter((a, i) => a === questions[i]?.answerIndex).length;
   const scaled = getScaledScore(score, examSource); // 传入 examSource
 
+  // 调试信息
+  console.log('MockExamPage - examSource:', examSource);
+  console.log('MockExamPage - score:', score);
+  console.log('MockExamPage - scaled:', scaled);
+
   // ✅ 插入 Supabase 并附带 scaled_score 字段
   const { error } = await supabase.from('mock_exam_results').insert({
     user_id: userId,
@@ -198,6 +203,7 @@ function MockExamPage() {
       answers,
       elapsedTime,
       title: examTitle,
+      examSource, // 添加 examSource
     }
   });
   localStorage.removeItem(`mockExamState_${examId}`);

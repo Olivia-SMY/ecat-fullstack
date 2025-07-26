@@ -34,6 +34,11 @@ function MockResultPage() {
     ans === questions[idx]?.answerIndex ? acc + 1 : acc, 0);
   const scaled = getScaledScore(score, examSource) ?? 'N/A';
 
+  // 调试信息
+  console.log('MockResultPage - examSource:', examSource);
+  console.log('MockResultPage - score:', score);
+  console.log('MockResultPage - scaled:', scaled);
+
   return (
     <div style={{ padding: 30, fontFamily: 'Arial, sans-serif', maxWidth: 800, margin: '0 auto' }}>
       <Link to="/" style={{ display: 'inline-block', marginBottom: 20 }}>⬅ 返回首页</Link>
