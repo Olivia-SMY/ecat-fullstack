@@ -2,6 +2,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
+import remarkBreaks from 'remark-breaks';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
@@ -280,10 +281,11 @@ useEffect(() => {
             <div style={{ marginBottom: 20 }}>
               <strong>Q {current + 1}:</strong>
               <div style={{ marginTop: 8, fontSize: 18 }}>
+                {console.log('题干内容:', question.question)}
                 {question.question ? (
                   <ReactMarkdown
                     children={question.question}
-                    remarkPlugins={[remarkMath]}
+                    remarkPlugins={[remarkMath, remarkBreaks]}
                     rehypePlugins={[rehypeKatex]}
                   />
                 ) : (
@@ -319,7 +321,7 @@ useEffect(() => {
                   >
                     <ReactMarkdown
                       children={opt}
-                      remarkPlugins={[remarkMath]}
+                      remarkPlugins={[remarkMath, remarkBreaks]}
                       rehypePlugins={[rehypeKatex]}
                     />
                   </button>

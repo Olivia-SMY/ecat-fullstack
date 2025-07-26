@@ -159,7 +159,7 @@
     "explanation": ""
   },
   {
-    "question": "The total power $P$ radiated by a star is given by:\n$$P=k R^{2} T^{4}$$\nwhere $R$ is the radius of the star, $T$ is its surface temperature and $k$ is a constant. The power currently radiated by the Sun is $4.0 \\times 10^{26}\\ \\mathrm{W}$. Towards the end of the Sun's life its radius will increase by a factor of a hundred and its surface temperature will decrease by a factor of two.\n\nWhat will be the power radiated by the Sun when these changes have occurred?",
+    "question": "The total power $P$ radiated by a star is given by:\n\n$$P=k R^{2} T^{4}$$\n\nwhere $R$ is the radius of the star, $T$ is its surface temperature and $k$ is a constant. The power currently radiated by the Sun is $4.0 \\times 10^{26}\\ \\mathrm{W}$. Towards the end of the Sun's life its radius will increase by a factor of a hundred and its surface temperature will decrease by a factor of two.\n\nWhat will be the power radiated by the Sun when these changes have occurred?",
     "options": [
       "$2.5 \\times 10^{27}\\ \\mathrm{W}$",
       "$1.0 \\times 10^{28}\\ \\mathrm{W}$",
@@ -237,28 +237,25 @@
     "explanation": ""
   },
   {
-    "question": "A heater is connected in series with a resistor and a 6.0 V battery in the circuit shown. How much charge flows through the heater in the 3.0 minutes and what is the voltage across the heater?",
-    "options": [
-      "1.2 C, 150 V",
-      "1.2 C, 216 V",
-      "7.5 C, 0.041 V",
-      "7.5 C, 24 V",
-      "72 C, 0.40 V",
-      "72 C, 2.5 V",
-      "450 C, 0.40 V",
-      "450 C, 2.5 V"
-    ],
-    "answerIndex": 5,
-    "images": [
-      "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q16.png"
-    ],
-    "tags": [
-      "physics",
-      "electricity"
-    ],
-    "difficulty": "medium",
-    "explanation": ""
-  },
+  "question": "A heater is connected in series with a resistor and a 6.0 V battery in the circuit shown.\n\nThe total resistance of the circuit is 15 Ω. In 3.0 minutes, 180 J of electrical energy is transferred into other forms in the heater.\n\nHow much charge flows through the heater in the 3.0 minutes and what is the voltage across the heater?",
+  "options": [
+    "charge: 1.2 C, voltage: 150 V",
+    "charge: 1.2 C, voltage: 216 V",
+    "charge: 7.5 C, voltage: 0.041 V",
+    "charge: 7.5 C, voltage: 24 V",
+    "charge: 72 C, voltage: 0.40 V",
+    "charge: 72 C, voltage: 2.5 V",
+    "charge: 450 C, voltage: 0.40 V",
+    "charge: 450 C, voltage: 2.5 V"
+  ],
+  "images": [
+    "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q16.png"
+  ],
+  "answerIndex": 5,
+  "tags": ["physics", "electricity", "energy", "charge"],
+  "difficulty": "medium",
+  "explanation": "Energy = Voltage × Charge → V = E/Q → V = 180 J / 72 C = 2.5 V"
+},
   {
     "question": "Make $b$ the subject of the formula: $$a=\\frac{b^{2}+2}{3 b^{2}-1}$$",
     "options": [
