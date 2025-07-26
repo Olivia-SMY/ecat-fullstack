@@ -244,6 +244,9 @@ const QuizPage = () => {
         data = res.data;
       }
 
+      // 只保留非 mock 题
+      data = data.filter(q => !q.isMock);
+
       setQuestions(data);
     } catch (err) {
       console.error('❌ 题目加载失败', err);
