@@ -205,8 +205,29 @@ function MockExamPage() {
   localStorage.removeItem(`mockExamState_${examId}`);
 };
 
+// 在组件顶部添加 useRef
+const currentRef = useRef(current);
+const answersRef = useRef(answers);
+const timeLeftRef = useRef(timeLeft);
+
+// 更新 ref 值
 useEffect(() => {
+  currentRef.current = current;
+}, [current]);
+
+useEffect(() => {
+  answersRef.current = answers;
+}, [answers]);
+
+useEffect(() => {
+  timeLeftRef.current = timeLeft;
+}, [timeLeft]);
+
+// 修改上报状态的 useEffect
+useEffect(() => {
+  console.log('useEffect triggered:', userId, examId);
   const interval = setInterval(() => {
+    console.log('interval running:', userId, examId);
     if (userId && examId) {
       fetch(`${API_BASE}/api/mock-exam-status`, {
         method: 'POST',
@@ -214,17 +235,18 @@ useEffect(() => {
         body: JSON.stringify({
           user_id: userId,
           exam_id: examId,
-          current,
-          answers,
-          timeLeft,
+          current: currentRef.current,        // 用 ref 的值
+          answers: answersRef.current,        // 用 ref 的值
+          timeLeft: timeLeftRef.current,      // 用 ref 的值
           lastActive: Date.now(),
         }),
       }).then(res => res.json()).then(data => {
+        console.log('try report:', userId, examId, currentRef.current, answersRef.current, timeLeftRef.current);
       });
     }
-  }, 30000);
+  }, 5000);
   return () => clearInterval(interval);
-}, [userId, examId, current, answers, timeLeft]);
+}, [userId, examId]);
 
 
   const question = questions[current];
@@ -281,7 +303,6 @@ useEffect(() => {
             <div style={{ marginBottom: 20 }}>
               <strong>Q {current + 1}:</strong>
               <div style={{ marginTop: 8, fontSize: 18 }}>
-                {console.log('题干内容:', question.question)}
                 {question.question ? (
                   <ReactMarkdown
                     children={question.question}

@@ -1,1 +1,1 @@
-{"name":"esat-server","version":"1.0.0","dependencies":{"@supabase/supabase-js":"^2.52.0","cors":"^2.8.5","dotenv":"^17.2.0","express":"^5.1.0","mongoose":"^8.16.4","react-markdown":"^10.1.0","rehype-katex":"^7.0.1","remark-math":"^6.0.0","pg":"^8.0.0"}}
+{"name":"esat-server","version":"1.0.0","dependencies":{"@supabase/supabase-js":"^2.52.1","cors":"^2.8.5","dotenv":"^17.2.0","express":"^5.1.0","mongoose":"^8.16.4","pg":"^8.0.0","react-markdown":"^10.1.0","rehype-katex":"^7.0.1","remark-math":"^6.0.0"}}

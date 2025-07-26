@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { Pool } = require('pg');
+const { createClient } = require('@supabase/supabase-js');
 
-// 用你的 Supabase/Postgres 连接信息
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false } 
-});
+// 使用 Supabase 客户端
+const supabaseUrl = 'https://pmaciokjcuwkunikmwgv.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtYWNpb2tqY3V3a3VuaWttd2d2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI5Nzk4ODUsImV4cCI6MjA2ODU1NTg4NX0.SNwrjWU4O2t2oxexU1hzKSh-LCbBHQMGAhs4RVWxWNE';
+
+const supabase = createClient(supabaseUrl, process.env.SUPABASE_SERVICE_KEY);
 
 // 1. 用户端定时上报当前状态
 router.post('/', async (req, res) => {
@@ -14,13 +14,24 @@ router.post('/', async (req, res) => {
   if (!user_id || !exam_id) return res.status(400).json({ error: '缺少参数' });
 
   try {
-    await pool.query(
-      `insert into mock_exam_live_status (user_id, exam_id, current, answers, time_left, last_active)
-       values ($1, $2, $3, $4, $5, to_timestamp($6 / 1000.0))
-       on conflict (user_id, exam_id)
-       do update set current = $3, answers = $4, time_left = $5, last_active = to_timestamp($6 / 1000.0)`,
-      [user_id, exam_id, current, JSON.stringify(answers), timeLeft, lastActive]
-    );
+    const { error } = await supabase
+      .from('mock_exam_live_status')
+      .upsert({
+        user_id,
+        exam_id,
+        current,
+        answers,
+        time_left: timeLeft,
+        last_active: new Date(lastActive).toISOString()
+      }, {
+        onConflict: 'user_id,exam_id'
+      });
+
+    if (error) {
+      console.error('上报状态失败:', error);
+      return res.status(500).json({ error: '数据库错误' });
+    }
+    
     res.json({ ok: true });
   } catch (err) {
     console.error('上报状态失败:', err);
@@ -39,13 +50,17 @@ router.get('/all', async (req, res) => {
   }
 
   try {
-    const { rows } = await pool.query(
-      `select s.*, p.username, p.email
-       from mock_exam_live_status s
-       left join profiles p on s.user_id = p.id
-       order by s.last_active desc`
-    );
-    res.json(rows);
+    const { data, error } = await supabase
+      .from('mock_exam_live_status')
+      .select('*')
+      .order('last_active', { ascending: false });
+
+    if (error) {
+      console.error('获取状态失败:', error);
+      return res.status(500).json({ error: '数据库错误' });
+    }
+
+    res.json(data || []);
   } catch (err) {
     console.error('获取状态失败:', err);
     res.status(500).json({ error: '数据库错误' });

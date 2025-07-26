@@ -36,7 +36,33 @@ export default function MonitorPage() {
     try {
       const res = await fetch(`/api/mock-exam-status/all?email=${encodeURIComponent(user.email)}`);
       const data = await res.json();
-      setStatuses(Array.isArray(data) ? data : []);
+      
+      if (Array.isArray(data) && data.length > 0) {
+        // 获取用户信息
+        const userIds = [...new Set(data.map(item => item.user_id))];
+        const { data: profilesData } = await supabase
+          .from('profiles')
+          .select('id, username, email')
+          .in('id', userIds);
+        
+        // 合并用户信息
+        const profilesMap = {};
+        if (profilesData) {
+          profilesData.forEach(profile => {
+            profilesMap[profile.id] = profile;
+          });
+        }
+        
+        const enrichedData = data.map(item => ({
+          ...item,
+          username: profilesMap[item.user_id]?.username || '—',
+          email: profilesMap[item.user_id]?.email || '—'
+        }));
+        
+        setStatuses(enrichedData);
+      } else {
+        setStatuses([]);
+      }
     } catch (err) {
       setStatuses([]);
       console.error('Failed to fetch statuses:', err);
