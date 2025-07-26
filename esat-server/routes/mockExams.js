@@ -29,6 +29,7 @@ router.get('/:id', async (req, res) => {
     res.json({
       title: exam.title,
       timeLimit: exam.timeLimit || 1800,
+      source: exam.source || '', // 添加 source 字段
       questions
     });
   } catch (err) {

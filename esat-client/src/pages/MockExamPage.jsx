@@ -175,11 +175,6 @@ function MockExamPage() {
   const score = answers.filter((a, i) => a === questions[i]?.answerIndex).length;
   const scaled = getScaledScore(score, examSource); // 传入 examSource
 
-  // 调试信息
-  console.log('MockExamPage - examSource:', examSource);
-  console.log('MockExamPage - score:', score);
-  console.log('MockExamPage - scaled:', scaled);
-
   // ✅ 插入 Supabase 并附带 scaled_score 字段
   const { error } = await supabase.from('mock_exam_results').insert({
     user_id: userId,
@@ -212,7 +207,6 @@ function MockExamPage() {
 useEffect(() => {
   const interval = setInterval(() => {
     if (userId && examId) {
-      console.log('上报状态', { userId, examId, current, answers, timeLeft });
       fetch(`${API_BASE}/api/mock-exam-status`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -225,7 +219,6 @@ useEffect(() => {
           lastActive: Date.now(),
         }),
       }).then(res => res.json()).then(data => {
-        console.log('上报响应', data);
       });
     }
   }, 30000);

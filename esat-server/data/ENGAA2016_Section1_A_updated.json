@@ -11,7 +11,7 @@
       "$x<28$",
       "$x>28$"
     ],
-    "answerIndex": 1,
+    "answerIndex": 6,
     "images": [],
     "tags": [
       "maths",
@@ -50,7 +50,7 @@
       "$5+2 \\sqrt{2} \\sqrt{3}$",
       "5"
     ],
-    "answerIndex": 5,
+    "answerIndex": 1,
     "images": [],
     "tags": [
       "algebra",
@@ -69,7 +69,7 @@
       "2 and 4",
       "3 and 4"
     ],
-    "answerIndex": 4,
+    "answerIndex": 5,
     "images": [
       "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q4.png"
     ],
@@ -113,7 +113,7 @@
       "2 and 3 only",
       "1, 2 and 3"
     ],
-    "answerIndex": 5,
+    "answerIndex": 2,
     "images": [
       "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q6.png"
     ],
@@ -135,7 +135,14 @@
   },
   {
     "question": "A circuit consists of a $5.0 \\Omega$ resistor and a variable resistor connected in series with a 24 V battery. The variable resistor has a minimum resistance of $3.0 \\Omega$ and a maximum resistance of $15 \\Omega$. The battery and the connecting wires have negligible resistance.\n\nWhat is the maximum power dissipated in the $5.0 \\Omega$ resistor?",
-    "options": ["$7.2\\ \\mathrm{W}$", "$18\\ \\mathrm{W}$", "$27\\ \\mathrm{W}$", "45 W", "72 W", "$75\\ \\mathrm{W}$"],
+    "options": [
+  "$7.2\\ \\mathrm{W}$",
+  "$18\\ \\mathrm{W}$",
+  "$27\\ \\mathrm{W}$",
+  "$45\\ \\mathrm{W}$",
+  "$72\\ \\mathrm{W}$",
+  "$75\\ \\mathrm{W}$"
+],
     "answerIndex": 3,
     "images": [],
     "tags": ["physics", "electricity"],
@@ -171,7 +178,13 @@
   },
   {
     "question": "The point $A$ is 4 km due East of the point $B$. The bearing of the point C from A is $330^{\\circ}$ and the bearing of C from B is $060^{\\circ}$. Find the distance $BC$.",
-    "options": ["2 km", "$2 \\sqrt{3}\\ \\mathrm{km}$", "4 km", "$2 \\sqrt{5}\\ \\mathrm{km}$", "$4 \\sqrt{2}\\ \\mathrm{km}$"],
+    "options": [
+  "$2\\ \\mathrm{km}$",
+  "$2 \\sqrt{3}\\ \\mathrm{km}$",
+  "$4\\ \\mathrm{km}$",
+  "$2 \\sqrt{5}\\ \\mathrm{km}$",
+  "$4 \\sqrt{2}\\ \\mathrm{km}$"
+],
     "answerIndex": 1,
     "images": [],
     "tags": ["maths", "geometry"],
@@ -198,7 +211,16 @@
   },
   {
     "question": "A motor is used to lift a mass of 5.0 kg using a pulley system as shown in the diagram. The pulley is secured to the roof using a coupling.\n\nThe motor needs to cause the mass to accelerate upwards at $0.80\\ \\mathrm{ms}^{-2}$. What is the minimum tension force that the coupling must be able to withstand without breaking? (The gravitational field strength $g$ is $10\\ \\mathrm{Nkg}^{-1}$. The pulley system is frictionless and has negligible mass. The rope has negligible mass and is inextensible.)",
-    "options": ["$4.0\\ \\mathrm{N}$", "$8.0\\ \\mathrm{N}$", "46 N", "$50\\ \\mathrm{N}$", "54 N", "92 N", "$104\\ \\mathrm{N}$", "108 N"],
+    "options": [
+  "$4.0\\ \\mathrm{N}$",
+  "$8.0\\ \\mathrm{N}$",
+  "$46\\ \\mathrm{N}$",
+  "$50\\ \\mathrm{N}$",
+  "$54\\ \\mathrm{N}$",
+  "$92\\ \\mathrm{N}$",
+  "$104\\ \\mathrm{N}$",
+  "$108\\ \\mathrm{N}$"
+],
     "answerIndex": 7,
     "images": ["https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q14.png"],
     "tags": ["physics", "forces"],
@@ -468,14 +490,15 @@
   {
     "question": "A student carries out an experiment to measure the speed of sound. A loudspeaker that emits sound in all directions is placed between two buildings that are 128 m apart as shown. The student and loudspeaker are 48 m from one of the buildings.\n\nThe loudspeaker is connected to a signal generator that causes it to emit regular clicks. The student notices that each click results in two echoes, one from each building. The rate at which the clicks are produced is gradually increased from zero until each echo coincides with a new click being emitted by the loudspeaker.\n\nWhat is the frequency of emission of clicks when this happens?\n(The speed of sound in air $=320 \\mathrm{~m} \\mathrm{~s}^{-1}$.)",
     "options": [
-      "2.0 Hz",
-      "2.5 Hz",
-      "3.3 Hz",
-      "4.0 Hz",
-      "5.3 Hz",
-      "$6.7 \\mathrm{Hz}$",
-      "$10 \\mathrm{Hz}$"
-    ],
+  "$2.0\\ \\mathrm{Hz}$",
+  "$2.5\\ \\mathrm{Hz}$",
+  "$3.3\\ \\mathrm{Hz}$",
+  "$4.0\\ \\mathrm{Hz}$",
+  "$5.3\\ \\mathrm{Hz}$",
+  "$6.7\\ \\mathrm{Hz}$",
+  "$10\\ \\mathrm{Hz}$"
+]
+,
     "answerIndex": 6,
     "images": [
       "https://pmaciokjcuwkunikmwgv.supabase.co/storage/v1/object/public/question-images/ENGAA2016/Q28.png"
