@@ -39,25 +39,45 @@ function MockExamPage() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [current, setCurrent] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(1800); // 初始值无所谓，后面会覆盖
+  const [timeLeft, setTimeLeft] = useState(1800); 
   const [examTimeLimit, setExamTimeLimit] = useState(1800);
   const [startTime, setStartTime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [examTitle, setExamTitle] = useState('');
   const [userId, setUserId] = useState(null);
-  const [examSource, setExamSource] = useState(''); // 新增
+  const [examSource, setExamSource] = useState(''); 
 
   // 用于防止多次初始化
   const initializedRef = useRef(false);
+
+  // 权限检查函数
+  const adminEmails = ['3075087825@qq.com', 'yifeng.chenox@gmail.com']; // 管理员邮箱白名单
 
   useEffect(() => {
     const fetchExam = async () => {
       try {
         const res = await axios.get(`${API_BASE}/api/mock-exams/${examId}`);
+        
+        // 检查是否是 2023 年的考试
+        const is2023Exam = res.data.title.includes('2023');
+        
+        // 如果是 2023 年考试，检查用户权限
+        if (is2023Exam) {
+          const { data } = await supabase.auth.getUser();
+          const user = data.user;
+          
+          if (!user || !adminEmails.includes(user.email)) {
+            alert('无权限访问 2023 年考试');
+            navigate('/');
+            return;
+          }
+        }
+        
+        // 正常加载考试数据
         setQuestions(res.data.questions);
         setExamTitle(res.data.title || '');
         setExamTimeLimit(res.data.timeLimit || 1800);
-        setExamSource(res.data.source || ''); // 新增
+        setExamSource(res.data.source || '');
 
         // 恢复 localStorage
         const saved = localStorage.getItem(`mockExamState_${examId}`);
@@ -87,7 +107,7 @@ function MockExamPage() {
     };
     fetchExam();
     // eslint-disable-next-line
-  }, [examId]);
+  }, [examId, navigate]);
 
   useEffect(() => {
     const fetchUser = async () => {
