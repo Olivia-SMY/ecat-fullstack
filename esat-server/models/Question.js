@@ -9,7 +9,9 @@ const questionSchema = new mongoose.Schema({
   images: [String],
   tags: [String],
   difficulty: String,
-  difficultyScore: Number
+  difficultyScore: Number,
+  isMock: { type: Boolean, default: false },
+  source: String
 });
 
 module.exports = mongoose.model("Question", questionSchema);
