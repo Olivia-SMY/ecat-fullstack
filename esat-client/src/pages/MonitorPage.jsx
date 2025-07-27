@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { supabase } from '../utils/supabase';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE } from '../utils/config';
 
 const adminEmails = ['3075087825@qq.com', 'yifeng.chenox@gmail.com'];
 
@@ -32,9 +33,17 @@ export default function MonitorPage() {
 
   // 拉取状态
   const fetchStatuses = useCallback(async () => {
+    console.log('=== DEBUG START ===');
+    console.log('user:', user);
+    console.log('API_BASE:', API_BASE);
+    console.log('typeof API_BASE:', typeof API_BASE);
+    
     if (!user) return;
     try {
-      const res = await fetch(`/api/mock-exam-status/all?email=${encodeURIComponent(user.email)}`);
+      // 在 MonitorPage 里加这行调试
+      console.log('API_BASE:', API_BASE);
+      console.log('Full URL:', `${API_BASE}/api/mock-exam-status/all?email=${encodeURIComponent(user.email)}&t=${Date.now()}`);
+      const res = await fetch(`${API_BASE}/api/mock-exam-status/all?email=${encodeURIComponent(user.email)}&t=${Date.now()}`);
       const data = await res.json();
       
       if (Array.isArray(data) && data.length > 0) {
