@@ -91,7 +91,7 @@ export default function MonitorPage() {
 
   return (
     <div style={{ padding: 40 }}>
-      <h2>🛡️ 实时监考 - 用户模考进度</h2>
+      <h2>🖥️ 实时监考 - 用户模考进度</h2>
       {loading ? (
         <p>加载中...</p>
       ) : (
@@ -100,7 +100,7 @@ export default function MonitorPage() {
             <tr style={{ borderBottom: '2px solid #ccc' }}>
               <th>用户名</th>
               <th>邮箱</th>
-              <th>考试ID</th>
+              <th>考试名称</th>
               <th>当前题号</th>
               <th>已答题数</th>
               <th>剩余时间</th>
@@ -112,7 +112,7 @@ export default function MonitorPage() {
               <tr key={s.user_id + s.exam_id} style={{ borderBottom: '1px solid #eee' }}>
                 <td>{s.username || '—'}</td>
                 <td>{s.email || '—'}</td>
-                <td>{s.exam_id}</td>
+                <td>{s.exam_title || '—'}</td>
                 <td>{s.current != null ? `Q${s.current + 1}` : '—'}</td>
                 <td>
                   {Array.isArray(s.answers)

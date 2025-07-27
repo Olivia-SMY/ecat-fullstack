@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { createClient } = require('@supabase/supabase-js');
+const MockExam = require('../models/MockExam');
 
 // 使用 Supabase 客户端
 const supabaseUrl = 'https://pmaciokjcuwkunikmwgv.supabase.co';
@@ -60,7 +61,27 @@ router.get('/all', async (req, res) => {
       return res.status(500).json({ error: '数据库错误' });
     }
 
-    res.json(data || []);
+    // 获取所有 exam_id 对应的标题
+    if (data && data.length > 0) {
+      const examIds = [...new Set(data.map(item => item.exam_id))];
+      const mockExams = await MockExam.find({ _id: { $in: examIds } }).select('title');
+      
+      // 创建 exam_id 到 title 的映射
+      const examTitleMap = {};
+      mockExams.forEach(exam => {
+        examTitleMap[exam._id.toString()] = exam.title;
+      });
+
+      // 为每个状态添加标题信息
+      const enrichedData = data.map(item => ({
+        ...item,
+        exam_title: examTitleMap[item.exam_id] || '未知考试'
+      }));
+
+      res.json(enrichedData);
+    } else {
+      res.json([]);
+    }
   } catch (err) {
     console.error('获取状态失败:', err);
     res.status(500).json({ error: '数据库错误' });
