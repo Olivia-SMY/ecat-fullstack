@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/supabase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { API_BASE } from '../utils/config';
 
 const getChoiceLabel = (i) => i != null ? String.fromCharCode(65 + i) : '—';
@@ -84,6 +84,7 @@ const MyRecords = () => {
 
   return (
     <div style={{ padding: '40px', fontFamily: 'Arial, sans-serif' }}>
+      <Link to="/" style={{ marginBottom: 20, display: 'inline-block' }}>⬅ 返回首页</Link>
       <h1>📜 我的答题记录</h1>
 
       <div style={{ marginBottom: 20 }}>
