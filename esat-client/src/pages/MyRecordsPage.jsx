@@ -33,6 +33,8 @@ const MyRecords = () => {
         .eq('user_id', currentUser.id)
         .order('created_at', { ascending: false });
 
+      console.log('获取到的mockData:', mockData);
+
       try {
         const res = await fetch(`${API_BASE}/api/questions`);
         const questions = await res.json();
@@ -48,6 +50,7 @@ const MyRecords = () => {
       try {
         const res = await fetch(`${API_BASE}/api/mock-exams/`);
         const exams = await res.json();
+        console.log('获取到的mockExams:', exams);
         setMockExams(Array.isArray(exams) ? exams : []);
       } catch (err) {
         console.error('❌ 获取考试列表失败:', err);
@@ -67,7 +70,13 @@ const MyRecords = () => {
   const formatTime = (s) => `${Math.floor(s / 60)} 分 ${s % 60} 秒`;
 
   const getExamTitle = (id) => {
-    const exam = mockExams.find(e => e._id === id || e._id?.toString() === id?.toString());
+    console.log('getExamTitle被调用，id:', id, '类型:', typeof id);
+    console.log('mockExams:', mockExams);
+    const exam = mockExams.find(e => {
+      console.log('比较:', e._id, id, e._id === id, e._id?.toString() === id?.toString());
+      return e._id === id || e._id?.toString() === id?.toString();
+    });
+    console.log('找到的exam:', exam);
     return exam ? exam.title : id;
   };
 
@@ -161,6 +170,7 @@ const MyRecords = () => {
                   <th style={{ textAlign: 'left', padding: '8px' }}>标准分</th>
                   <th style={{ textAlign: 'left', padding: '8px' }}>用时</th>
                   <th style={{ textAlign: 'left', padding: '8px' }}>提交时间</th>
+                  <th style={{ textAlign: 'left', padding: '8px' }}>操作</th>
                 </tr>
               </thead>
               <tbody>
@@ -171,6 +181,33 @@ const MyRecords = () => {
                     <td style={{ padding: '8px' }}>{record.scaled_score ?? '—'}</td>
                     <td style={{ padding: '8px' }}>{formatTime(record.elapsed_time)}</td>
                     <td style={{ padding: '8px' }}>{new Date(record.created_at).toLocaleString()}</td>
+                    <td style={{ padding: '8px' }}>
+                      <button
+                        onClick={() => {
+                          console.log('点击查看详情，record:', record);
+                          console.log('exam_id:', record.exam_id);
+                          console.log('exam_id类型:', typeof record.exam_id);
+                          navigate('/mock-record-detail', {
+                            state: {
+                              record,
+                              examId: record.exam_id,
+                              examTitle: getExamTitle(record.exam_id)
+                            }
+                          });
+                        }}
+                        style={{
+                          padding: '4px 8px',
+                          backgroundColor: '#2f80ed',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: 4,
+                          cursor: 'pointer',
+                          fontSize: '12px'
+                        }}
+                      >
+                        查看详情
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

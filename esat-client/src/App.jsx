@@ -17,6 +17,7 @@ import JsonPreview from './pages/JsonPreview';
 import MockResultPage from './pages/MockResultPage';
 import MockListPage from './pages/MockListPage';
 import MockYearPage from './pages/MockYearPage';
+import MockRecordDetailPage from './pages/MockRecordDetailPage';
 import 'antd/dist/reset.css'; 
 import { supabase } from './utils/supabase';
 import MonitorPage from './pages/MonitorPage';
@@ -85,6 +86,7 @@ function App() {
       <Route path="/qupload" element={<Qupload />} />
       <Route path="/json-preview" element={<JsonPreview />} />
       <Route path="/mock-result" element={<MockResultPage />} />
+      <Route path="/mock-record-detail" element={<MockRecordDetailPage />} />
       <Route path="/mock-exams/:examId" element={<MockExamPage />} />
       <Route path="/mock-exams" element={<MockListPage />} />
       <Route path="/mock-year/:year" element={<MockYearPage />} />
